@@ -10,6 +10,23 @@ body {
   background: #f3f5f9;
 }
 
+main {
+  margin-top: 85px;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+.btn-primary {
+  border-radius: 10px;
+}
+
+.btn-primary:focus {
+  border: none;
+  box-shadow: none;
+}
+
 /* Login */
 .main-login {
   background-image: url("http://www.tlu.edu.vn/Portals/0/2020/Thang5/vi2.jpg");
@@ -90,28 +107,31 @@ body {
 }
 
 /* Home */
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 12px 15px;
+  background-color: #e0e7f5;
+}
+
 .manage_item {
-  height: 150px;
+  padding: 40px 0;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 5px;
 }
 
-.btn-primary {
-  border-radius: 10px;
-}
-
-.btn:focus {
-  box-shadow: none;
-}
-
-.btn-primary:focus {
-  border: none;
-  box-shadow: none;
+.manage_item:hover {
+  transform: scale(1.1, 1.1);
+  color: #fff;
 }
 
 /* Menu */
 .sidebar {
-  height: calc(100% - 85px) ;
+  height: calc(100% - 85px);
   background: #000000e0;
   padding: 10px 0;
+  top: 85px;
 }
 
 .sidebar ul li {
@@ -159,4 +179,41 @@ body {
   font-size: 18px;
   color: #bdb8d7;
   width: 25px;
+}
+
+/* Admin: subject */
+.overlay {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  margin: auto;
+}
+
+.form-container {
+  display: none;
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form_content {
+  padding: 16px 12px;
+  border-radius: 10px;
+}
+
+.form_title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.form_btn {
+  margin-right: 12px;
+  margin-left: 12px;
+  border-radius: 5px;
 }
