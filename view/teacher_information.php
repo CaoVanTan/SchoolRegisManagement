@@ -23,7 +23,13 @@ include '../partials-front/teacher_menu.php';
                             <th scope="col">Số điện thoại</th>
                             <th scope="col">Email</th>
                             <th scope="col">Mật khẩu</th>
+                            <?php
+                                include '../model/teacher_information.php'; 
+                            
+                            
+                            ?>
                         </tr>
+
                     </thead>
                     <tbody>
                         

@@ -21,6 +21,13 @@ include '../partials-front/teacher_menu.php';
                             <th scope="col">Mật khẩu</th>
                             <th scope="col">Tên môn học</th>
                             <th scope="col">Lớp</th>
+                            <?php 
+                            include '../model/teacher_student_register.php';
+                            
+                            
+                            
+                            
+                            ?>
 
                         </tr>
                     </thead>
