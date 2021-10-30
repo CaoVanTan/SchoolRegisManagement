@@ -25,27 +25,42 @@ include '../../partials-front/admin_menu.php';
                         <th scope="col">Địa chỉ</th>
                         <th scope="col">Số điện thoại</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Khoa</th>
                         <th scope="col">Lớp</th>
+                        <th scope="col">Môn học</th>
                         <th scope="col">Sửa</th>
                         <th scope="col">Xóa</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>Mark</td>
-                        <td>@mdo</td>
-                        <td>Mark</td>
-                        <td>@mdo</td>
-                        <td>Mark</td>
-                        <td>@mdo</td>
-                        <td><button type="button" id="btnEditStd" class="d-block w-100 border-0 text-start bg-transparent"><i class="text-dark ms-2 fas fa-edit"></i></button></td>
-                        <td><button type="button" id="btnDelStd" class="d-block w-100 border-0 text-start bg-transparent"><i class="text-dark ms-2 fas fa-trash-alt"></i></button></td>
-                    </tr>
+                    <?php
+                        include '../../process/admin/get_student.php';
+
+                        $stt = 1;
+                        if(mysqli_num_rows($result) > 0) {
+                            while($row = mysqli_fetch_assoc($result)) {
+                                echo '<tr>
+                                    <th scope="row">'.$stt++.'</th>
+                                    <td>'.$row['std_id'].'</td>
+                                    <td>'.$row['std_name'].'</td>
+                                    <td>'.$row['std_gender'].'</td>
+                                    <td>'.$row['std_birthday'].'</td>
+                                    <td>'.$row['std_address'].'</td>
+                                    <td>'.$row['std_phone'].'</td>
+                                    <td>'.$row['std_email'].'</td>
+                                    <td>'.$row['class_name'].'</td>
+                                    <td>'.$row['subject_name'].'</td>
+                                    <td>
+                                        <button type="button" id="btnEditStd" class="d-block w-100 border-0 text-start bg-transparent">
+                                            <i class="text-dark ms-2 fas fa-edit"></i>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" id="btnDelStd" class="d-block w-100 border-0 text-start bg-transparent"><i class="text-dark ms-2 fas fa-trash-alt"></i></button></td>
+                                    </tr>';
+                            }
+                        }
+
+                    ?>
                 </tbody>
             </table>
         </div>

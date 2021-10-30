@@ -1,8 +1,8 @@
 <?php
-include '../partials-front/header.php';
+include '../partials-front/header_login.php';
 ?>
 
-<main class="main-login vh-100 w-100 d-flex justify-content-center align-items-center">
+<div class="main-login vh-100 w-100 d-flex justify-content-center align-items-center">
     <form action="./process_login.php" method="post" class="form w-100">
         <div class="form_header mb-5 d-flex justify-content-center">
             <!-- <img src="../asset/img/logo.png" alt="" class="form__logo-img"> -->
@@ -18,7 +18,7 @@ include '../partials-front/header.php';
         </div>
         <button type="submit" class="form-btn btn btn-primary w-100 fw-bold bg-transparent" name="btnLogin">SIGN IN</button>
     </form>
-</main>
+</div>
 
 <?php
 include '../partials-front/footer.php';
