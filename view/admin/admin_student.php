@@ -1,7 +1,7 @@
 <?php
-include '../partials-front/header.php';
-include '../partials-front/header_nav.php';
-include '../partials-front/admin_menu.php';
+include '../../partials-front/header.php';
+include '../../partials-front/header_nav.php';
+include '../../partials-front/admin_menu.php';
 ?>
 
 <main class="col-10 float-end">
@@ -56,5 +56,5 @@ include '../partials-front/admin_menu.php';
 include './admin_student_add.php';
 include './admin_student_edit.php';
 include './admin_student_delete.php';
-include '../partials-front/footer.php';
+include '../../partials-front/footer.php';
 ?>
