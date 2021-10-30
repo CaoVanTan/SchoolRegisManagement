@@ -3,25 +3,25 @@
         <p class="d-block title-menu px-3 pt-3">MENU</p>
         <ul class="ps-0">
             <li>
-                <a class="text-decoration-none h-100 d-flex align-items-center" href="../view/admin_dashboard.php">
+                <a class="text-decoration-none h-100 d-flex align-items-center" href="../admin/admin_dashboard.php">
                     <i class="fas fa-home"></i>
                     Trang chủ
                 </a>
             </li>
             <li>
-                <a class="text-decoration-none h-100 d-flex align-items-center" href="../view/admin_student.php">
+                <a class="text-decoration-none h-100 d-flex align-items-center" href="../admin/admin_student.php">
                     <i class="fas fa-users"></i>
                     Sinh viên
                 </a>
             </li>
             <li class="notification1">
-                <a class="text-decoration-none h-100 d-flex align-items-center" href="../view/admin_teacher.php">
+                <a class="text-decoration-none h-100 d-flex align-items-center" href="../admin/admin_teacher.php">
                     <i class="fas fa-user-tie"></i>
                     Giảng viên
                 </a>
             </li>
             <li class="notification2">
-                <a class="text-decoration-none h-100 d-flex align-items-center" href="../view/admin_subject.php">
+                <a class="text-decoration-none h-100 d-flex align-items-center" href="../admin/admin_subject.php">
                     <i class="fas fa-book-open"></i>
                     Môn học
                 </a>
