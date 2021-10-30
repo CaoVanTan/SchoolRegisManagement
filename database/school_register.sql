@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2021 at 11:35 AM
+-- Generation Time: Oct 30, 2021 at 05:29 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -30,17 +30,51 @@ SET time_zone = "+00:00";
 CREATE TABLE `class` (
   `class_id` int(10) UNSIGNED NOT NULL,
   `class_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `office_id` int(10) UNSIGNED NOT NULL
+  `office_id` int(10) UNSIGNED NOT NULL,
+  `course_id` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `class`
 --
 
-INSERT INTO `class` (`class_id`, `class_name`, `office_id`) VALUES
-(1, '61TH1', 1),
-(2, '61KT1', 2),
-(3, '61TH2', 1);
+INSERT INTO `class` (`class_id`, `class_name`, `office_id`, `course_id`) VALUES
+(1, '61TH1', 1, 'K61'),
+(2, '61KT1', 2, 'K61'),
+(3, '61TH2', 1, 'K61');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `course`
+--
+
+CREATE TABLE `course` (
+  `course_id` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `year_start` year(4) NOT NULL,
+  `year_end` year(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `course`
+--
+
+INSERT INTO `course` (`course_id`, `year_start`, `year_end`) VALUES
+('K61', 2019, 2024);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `curriculum`
+--
+
+CREATE TABLE `curriculum` (
+  `office_id` int(10) UNSIGNED NOT NULL,
+  `subject_id` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `school_year` int(11) NOT NULL,
+  `semester` int(11) NOT NULL,
+  `credits` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -95,7 +129,6 @@ CREATE TABLE `student` (
   `std_email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `std_address` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `std_pass` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `subject_id` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `class_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -103,8 +136,9 @@ CREATE TABLE `student` (
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`std_id`, `std_name`, `std_gender`, `std_birthday`, `std_phone`, `std_email`, `std_address`, `std_pass`, `subject_id`, `class_id`) VALUES
-('1951060995', 'Cao Văn Tân', 1, '2001-10-21', '0123345678', '1951060995@e.tlu.edu.vn', 'Thanh Hóa', '1951060995', 'CSE485', 1);
+INSERT INTO `student` (`std_id`, `std_name`, `std_gender`, `std_birthday`, `std_phone`, `std_email`, `std_address`, `std_pass`, `class_id`) VALUES
+('1951060995', 'Cao Văn Tân', 1, '2001-10-21', '0123345678', '1951060995@e.tlu.edu.vn', 'Thanh Hóa', '1951060995', 1),
+('1951060996', 'Nguyễn Văn Mạnh', 1, '2001-11-16', '0123345678', '1951060996@e.tlu.edu.vn', 'Thanh Hóa', '1951060996', 3);
 
 -- --------------------------------------------------------
 
@@ -115,18 +149,15 @@ INSERT INTO `student` (`std_id`, `std_name`, `std_gender`, `std_birthday`, `std_
 CREATE TABLE `subject` (
   `subject_id` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `subject_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `subject_credits` int(11) NOT NULL,
-  `subject_tuition` int(11) NOT NULL,
-  `time_start` date NOT NULL,
-  `time_end` date NOT NULL
+  `office_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `subject`
 --
 
-INSERT INTO `subject` (`subject_id`, `subject_name`, `subject_credits`, `subject_tuition`, `time_start`, `time_end`) VALUES
-('CSE485', 'Công nghệ Web', 3, 335000, '2021-10-13', '2021-12-13');
+INSERT INTO `subject` (`subject_id`, `subject_name`, `office_id`) VALUES
+('CSE485', 'Công nghệ Web', 1);
 
 -- --------------------------------------------------------
 
@@ -163,7 +194,21 @@ INSERT INTO `teacher` (`teacher_id`, `teacher_name`, `teacher_gender`, `teacher_
 --
 ALTER TABLE `class`
   ADD PRIMARY KEY (`class_id`),
-  ADD KEY `office_id` (`office_id`);
+  ADD KEY `office_id` (`office_id`),
+  ADD KEY `course_id` (`course_id`);
+
+--
+-- Indexes for table `course`
+--
+ALTER TABLE `course`
+  ADD PRIMARY KEY (`course_id`);
+
+--
+-- Indexes for table `curriculum`
+--
+ALTER TABLE `curriculum`
+  ADD KEY `office_id` (`office_id`),
+  ADD KEY `subject_id` (`subject_id`);
 
 --
 -- Indexes for table `list_register`
@@ -184,14 +229,14 @@ ALTER TABLE `office`
 --
 ALTER TABLE `student`
   ADD PRIMARY KEY (`std_id`),
-  ADD KEY `class_id` (`class_id`),
-  ADD KEY `subject_id` (`subject_id`);
+  ADD KEY `class_id` (`class_id`);
 
 --
 -- Indexes for table `subject`
 --
 ALTER TABLE `subject`
-  ADD PRIMARY KEY (`subject_id`);
+  ADD PRIMARY KEY (`subject_id`),
+  ADD KEY `office_id` (`office_id`);
 
 --
 -- Indexes for table `teacher`
@@ -231,7 +276,15 @@ ALTER TABLE `teacher`
 -- Constraints for table `class`
 --
 ALTER TABLE `class`
-  ADD CONSTRAINT `class_ibfk_1` FOREIGN KEY (`office_id`) REFERENCES `office` (`office_id`);
+  ADD CONSTRAINT `class_ibfk_1` FOREIGN KEY (`office_id`) REFERENCES `office` (`office_id`),
+  ADD CONSTRAINT `class_ibfk_2` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`);
+
+--
+-- Constraints for table `curriculum`
+--
+ALTER TABLE `curriculum`
+  ADD CONSTRAINT `curriculum_ibfk_1` FOREIGN KEY (`office_id`) REFERENCES `office` (`office_id`),
+  ADD CONSTRAINT `curriculum_ibfk_2` FOREIGN KEY (`subject_id`) REFERENCES `subject` (`subject_id`);
 
 --
 -- Constraints for table `list_register`
@@ -245,8 +298,13 @@ ALTER TABLE `list_register`
 -- Constraints for table `student`
 --
 ALTER TABLE `student`
-  ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`class_id`) REFERENCES `class` (`class_id`),
-  ADD CONSTRAINT `student_ibfk_2` FOREIGN KEY (`subject_id`) REFERENCES `subject` (`subject_id`);
+  ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`class_id`) REFERENCES `class` (`class_id`);
+
+--
+-- Constraints for table `subject`
+--
+ALTER TABLE `subject`
+  ADD CONSTRAINT `subject_ibfk_1` FOREIGN KEY (`office_id`) REFERENCES `office` (`office_id`);
 
 --
 -- Constraints for table `teacher`
