@@ -12,13 +12,13 @@ include '../../partials-front/admin_menu.php';
 
         <div class="row justify-content-around my-4">
             <div class="col-3 px-4">
-                <a href="./admin_teacher.php" class="manage_item d-block bg-primary text-center">
-                    Quản lý Giảng viên
+                <a href="./admin_student.php" class="manage_item d-block bg-success text-center">
+                    Quản lý Sinh viên
                 </a>
             </div>
             <div class="col-3 px-4">
-                <a href="./admin_student.php" class="manage_item d-block bg-success text-center">
-                    Quản lý Sinh viên
+                <a href="./admin_teacher.php" class="manage_item d-block bg-primary text-center">
+                    Quản lý Giảng viên
                 </a>
             </div>
             <div class="col-3 px-4">

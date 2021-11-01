@@ -18,7 +18,7 @@ include '../../partials-front/admin_menu.php';
                 <thead>
                     <tr class="table-secondary">
                         <th scope="col">STT</th>
-                        <th scope="col">Giảng viên</th>
+                        <th scope="col">Tên giảng viên</th>
                         <th scope="col">Giới tính</th>
                         <th scope="col">Ngày sinh</th>
                         <th scope="col">Địa chỉ</th>
@@ -31,19 +31,37 @@ include '../../partials-front/admin_menu.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>Mark</td>
-                        <td>@mdo</td>
-                        <td>Mark</td>
-                        <td>@mdo</td>
-                        <td>Mark</td>
-                        <td><button type="button" id="btnEditTeacher" class="d-block w-100 border-0 text-start bg-transparent"><i class="text-dark ms-2 fas fa-edit"></i></button></td>
-                        <td><button type="button" id="btnDelTeacher" class="d-block w-100 border-0 text-start bg-transparent"><i class="text-dark ms-2 fas fa-trash-alt"></i></button></td>
-                    </tr>
+                    <?php
+                    include '../../process/admin/get_teacher.php';
+
+                    $stt = 1;
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            if ($row['teacher_gender'] == 1) {
+                                $gender = 'Nam';
+                            } else {
+                                $gender = 'Nữ';
+                            }
+
+                            $date = explode('-', $row['teacher_birthday']);
+                            $birthday = $date[2] . '-' . $date[1] . '-' . $date[0];
+                            echo    '<tr>
+                                    <th scope="row">' . $stt++ . '</th>
+                                    <td>' . $row['teacher_name'] . '</td>
+                                    <td>' . $gender . '</td>
+                                    <td>' . $birthday . '</td>
+                                    <td>' . $row['teacher_address'] . '</td>
+                                    <td>' . $row['teacher_phone'] . '</td>
+                                    <td>' . $row['teacher_email'] . '</td>
+                                    <td>' . $row['office_name'] . '</td>
+                                    <td>' . $row['subject_name'] . '</td>
+                                    <td><a href="./admin_teacher_edit.php?id=' . $row['teacher_id'] . '" id="btnEditTeacher" class="d-block w-100 border-0 text-start bg-transparent"><i class="text-dark ms-2 fas fa-edit"></i></a></td>
+                                    <td><a href="../../process/admin/delete_teacher.php?id=' . $row['teacher_id'] . '" id="btnDelTeacher" class="d-block w-100 border-0 text-start bg-transparent"><i class="text-dark ms-2 fas fa-trash-alt"></i></a></td>
+                                </tr>';
+                        }
+                    }
+                    ?>
+
                 </tbody>
             </table>
         </div>
@@ -52,7 +70,5 @@ include '../../partials-front/admin_menu.php';
 
 <?php
 include './admin_teacher_add.php';
-include './admin_teacher_edit.php';
-include './admin_teacher_delete.php';
 include '../../partials-front/footer.php';
 ?>
