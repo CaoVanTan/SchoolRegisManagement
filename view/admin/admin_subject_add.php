@@ -11,6 +11,10 @@
                 <input type="text" class="form-control" id="subjectName" name="subjectName">
             </div>
             <div class="mb-3 col-6">
+                <label for="subjectCredits" class="form-label">Số tín chỉ:</label>
+                <input type="number" class="form-control" id="subjectCredits" name="subjectCredits">
+            </div>
+            <div class="mb-3 col-6">
                 <label for="subjectOffice" class="form-label">Khoa:</label>
                 <select class="form-select" aria-label="Default select example" name="subjectOffice">
                 <?php

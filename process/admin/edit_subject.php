@@ -4,9 +4,10 @@
     if(isset($_POST['btnSaveEditSubject'])) {
         $subjectID = $_POST['subjectID'];
         $subjectName = $_POST['subjectName'];
+        $subjectCredits = $_POST['subjectCredits'];
         $subjectOffice = $_POST['subjectOffice'];
 
-        $sql = "UPDATE subject SET subject_id = '$subjectID', subject_name = '$subjectName', office_id = '$subjectOffice' where subject_id = '$subjectID'";
+        $sql = "UPDATE subject SET subject_id = '$subjectID', subject_name = '$subjectName', credits = '$subjectCredits', office_id = '$subjectOffice' where subject_id = '$subjectID'";
         $result = mysqli_query($con, $sql);
 
         if($result) {

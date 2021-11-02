@@ -24,11 +24,15 @@ include '../../config/config.php';
 
             <div class="mb-3 col-6">
                 <label for="subjectID" class="form-label">Mã môn học:</label>
-                <input type="text" disabled class="form-control" id="subjectID" name="subjectID" value="<?php echo $row_cr['subject_id'] ?>">
+                <input type="text" readonly class="form-control" id="subjectID" name="subjectID" value="<?php echo $row_cr['subject_id'] ?>">
             </div>
             <div class="mb-3 col-6">
                 <label for="subjectName" class="form-label">Môn học:</label>
                 <input type="text" class="form-control" id="subjectName" name="subjectName" value="<?php echo $row_cr['subject_name'] ?>">
+            </div>
+            <div class="mb-3 col-6">
+                <label for="subjectCredits" class="form-label">Số tín chỉ:</label>
+                <input type="number" class="form-control" id="subjectCredits" name="subjectCredits" value="<?php echo $row_cr['credits'] ?>">
             </div>
             <div class="mb-3 col-6">
                 <label for="subjectOffice" class="form-label">Khoa:</label>

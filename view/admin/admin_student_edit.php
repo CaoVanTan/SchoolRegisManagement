@@ -24,7 +24,7 @@ include '../../config/config.php';
 
             <div class="mb-3 col-6">
                 <label for="stdID" class="form-label">Mã sinh viên:</label>
-                <input type="text" disabled class="form-control" id="stdID" value="<?php echo $row_cr['std_id']; ?>" name="stdID">
+                <input type="text" readonly class="form-control" id="stdID" value="<?php echo $row_cr['std_id']; ?>" name="stdID">
             </div>
             <div class="mb-3 col-6">
                 <label for="stdName" class="form-label">Tên sinh viên:</label>
