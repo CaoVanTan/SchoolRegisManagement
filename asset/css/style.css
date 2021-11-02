@@ -10,7 +10,6 @@ body {
     background: #f3f5f9;
 }
 
-<<<<<<< HEAD
 main {
   margin-top: 85px;
 }
@@ -27,8 +26,6 @@ main {
   border: none;
   box-shadow: none;
 }
-=======
->>>>>>> manh
 
 /* Login */
 
@@ -115,7 +112,6 @@ main {
 
 
 /* Home */
-<<<<<<< HEAD
 .title {
   font-size: 18px;
   font-weight: 600;
@@ -133,31 +129,12 @@ main {
 .manage_item:hover {
   transform: scale(1.1, 1.1);
   color: #fff;
-=======
-
-.manage_item {
-    height: 150px;
-}
-
-.btn-primary {
-    border-radius: 10px;
-}
-
-.btn:focus {
-    box-shadow: none;
-}
-
-.btn-primary:focus {
-    border: none;
-    box-shadow: none;
->>>>>>> manh
 }
 
 
 /* Menu */
 
 .sidebar {
-<<<<<<< HEAD
   height: calc(100% - 85px);
   background: #000000e0;
   padding: 10px 0;
@@ -188,32 +165,6 @@ main {
   background: #000;
   text-decoration: none;
   cursor: pointer;
-=======
-    height: calc(100% - 85px);
-    background: #000000e0;
-    padding: 10px 0;
-}
-
-.sidebar ul li {
-    height: 54px;
-}
-
-.sidebar ul li a {
-    color: #fff;
-    display: block;
-    padding-left: 15px;
-}
-
-.sidebar ul li a i {
-    color: #bdb8d7;
-    width: 25px;
-}
-
-.sidebar ul li:hover {
-    background: #000;
-    text-decoration: none;
-    cursor: pointer;
->>>>>>> manh
 }
 
 .sidebar .dropdown ul {
@@ -230,7 +181,6 @@ main {
     font-size: 14px;
 }
 
-<<<<<<< HEAD
 
 /* Admin: Model add */
 .overlay {
@@ -268,24 +218,3 @@ main {
   margin-left: 12px;
   border-radius: 5px;
 }
-=======
-.userProfile {
-    height: 64px;
-}
-
-.userProfile a {
-    padding-left: 15px;
-    font-size: 15px;
-}
-
-.userProfile a:hover {
-    color: #fff;
-    background: #000;
-}
-
-.userProfile a i {
-    font-size: 18px;
-    color: #bdb8d7;
-    width: 25px;
-}
->>>>>>> manh
