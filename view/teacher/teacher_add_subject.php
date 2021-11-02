@@ -5,7 +5,7 @@ include '../../partials-front/teacher_menu.php';
 include '../../config/config.php';
 ?>
 
-<!-- <form action="../../process/teacher/teacher_add_subject.php" method="post"> -->
+
 <main class="d-flex justify-content-end">
     <div class="col-10 ">
         <div class="container">
@@ -60,7 +60,7 @@ include '../../config/config.php';
         </div>
     </div>
 </main>
-<!-- </form> -
+
 
 
 
