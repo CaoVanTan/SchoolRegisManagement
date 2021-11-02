@@ -15,7 +15,7 @@
              
              
             
-             echo '<td><a href="teacher_delete_subject.php?id='.$row['subject_id'].'"><i class="text-dark ms-2 fas fa-edit"></i></a></td>';
+             echo '<td><a href="./teacher_edit_subject.php?id='.$row['subject_id'].'"><i class="text-dark ms-2 fas fa-edit"></i></a></td>';
              echo '<td><a href="../../process/teacher/teacher_delete_subject.php?id='.$row['subject_id'].'"><i class="text-dark ms-2 fas fa-trash-alt"></i></a></td>';
              echo '</tr>';
          }
