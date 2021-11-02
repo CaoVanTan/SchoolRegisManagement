@@ -1,7 +1,7 @@
 <?php
-include '../partials-front/header.php';
-include '../partials-front/header_student.php';
-include '../partials-front/student_menu.php';
+include '../../partials-front/header.php';
+include '../../partials-front/header_nav.php';
+include '../../partials-front/student_menu.php';
 ?>
 
 <main class="d-flex justify-content-end">
@@ -26,5 +26,5 @@ include '../partials-front/student_menu.php';
 </main>
 
 <?php
-include '../partials-front/footer.php';
+include '../../partials-front/footer.php';
 ?>
