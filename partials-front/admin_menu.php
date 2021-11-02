@@ -14,30 +14,35 @@
                     Sinh viên
                 </a>
             </li>
-            <li class="notification1">
+            <li>
                 <a class="text-decoration-none h-100 d-flex align-items-center" href="../admin/admin_teacher.php">
                     <i class="fas fa-user-tie"></i>
                     Giảng viên
                 </a>
             </li>
-            <li class="notification2">
+            <li>
                 <a class="text-decoration-none h-100 d-flex align-items-center" href="../admin/admin_subject.php">
                     <i class="fas fa-book-open"></i>
                     Môn học
                 </a>
             </li>
             <li>
-                <a class="text-decoration-none h-100 d-flex align-items-center" href="#">
+                <a class="text-decoration-none h-100 d-flex align-items-center" href="../admin/admin_curriculum.php">
+                    <i class="fas fa-graduation-cap"></i>
+                    Chương trình học
+                </a>
+            </li>
+
+            <div class="dropdown">
+                <a href="#" class="text-white dropdown-toggle text-decoration-none h-100 d-flex align-items-center" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fas fa-signal"></i>
                     Quản lý đăng ký học
                 </a>
-            </li>
+                <ul class="dropdown-menu w-100 p-0 border-0 rounded-0">
+                    <li><a class="dropdown-item d-flex align-items-center h-100" href="#">Mở/đóng đợt đăng ký</a></li>
+                    <li><a class="dropdown-item d-flex align-items-center h-100" href="../admin/list_student_register.php">Danh sách sinh viên</a></li>
+                </ul>
+            </div>
         </ul>
-        <!-- <div class="userProfile w-100 position-absolute start-0 bottom-0">
-            <a class="d-flex align-items-center w-100 h-100 text-white text-decoration-none" href="#">
-                <i class="far fa-user-circle xyz"></i>
-                View Profile
-            </a>
-        </div> -->
     </div>
 </nav>
