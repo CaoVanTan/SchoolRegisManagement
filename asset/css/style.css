@@ -134,25 +134,38 @@ main {
   top: 85px;
 }
 
-.sidebar ul li {
+.sidebar ul li,
+.dropdown {
   height: 54px;
 }
 
-.sidebar ul li a {
+.sidebar ul li a,
+.sidebar .dropdown a {
   color: #fff;
   display: block;
   padding-left: 15px;
 }
 
-.sidebar ul li a i {
+.sidebar ul li a i,
+.sidebar .dropdown a i {
   color: #bdb8d7;
   width: 25px;
 }
 
-.sidebar ul li:hover {
+.sidebar ul li:hover,
+.dropdown:hover
+{
   background: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+.sidebar .dropdown ul {
+  background: #000000e0;
+}
+
+.sidebar .dropdown ul a:hover {
+  background-color: #1a1a1a;
 }
 
 .title-menu {
@@ -161,27 +174,8 @@ main {
   font-size: 14px;
 }
 
-.userProfile {
-  height: 64px;
-}
 
-.userProfile a {
-  padding-left: 15px;
-  font-size: 15px;
-}
-
-.userProfile a:hover {
-  color: #fff;
-  background: #000;
-}
-
-.userProfile a i {
-  font-size: 18px;
-  color: #bdb8d7;
-  width: 25px;
-}
-
-/* Admin: subject */
+/* Admin: Model add */
 .overlay {
   display: none;
   width: 100vw;

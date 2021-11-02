@@ -33,4 +33,15 @@ $(document).ready(function () {
     $("#overlayAddStd").hide();
     $("#modelAddStd").hide();
   });
+
+
+  // Process Login
+  $('#btnLogin').click(function () {
+    var userName = $('#inputUserName').val();
+    var password = $('#inputPassword').val();
+
+    if(userName == '' || password == '') {
+      alert('Bạn phải nhập tài khoản và mật khẩu!');
+    }
+  });
 });
