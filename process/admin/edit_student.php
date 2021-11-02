@@ -2,7 +2,7 @@
     include '../../config/config.php';
 
     if(isset($_POST['btnSaveEditStd'])) {
-        $stdID = $_POST['stdID'];
+        $ID = $_POST['stdID'];
         $stdName = $_POST['stdName'];
         $stdGender = $_POST['stdGender'];
         $stdBirthday = $_POST['stdBirthday'];
@@ -10,10 +10,9 @@
         $stdPhone = $_POST['stdPhone'];
         $stdEmail = $_POST['stdEmail'];
         $stdClass = $_POST['stdClass'];
-        $stdPass = $stdID;
 
-        $sql = "UPDATE student SET std_id = '$stdID', std_name = '$stdName', std_gender = '$stdGender', std_birthday = '$stdBirthday', std_phone = '$stdPhone',
-                std_email = '$stdEmail', std_address = '$stdAddress', std_pass = '$stdPass', class_id = '$stdClass' where std_id = '$stdID'";
+        $sql = "UPDATE student SET std_name = '$stdName', std_gender = '$stdGender', std_birthday = '$stdBirthday', std_phone = '$stdPhone',
+                std_email = '$stdEmail', std_address = '$stdAddress', class_id = '$stdClass' where std_id = '$ID'";
         $result = mysqli_query($con, $sql);
 
         if($result) {

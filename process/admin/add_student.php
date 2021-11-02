@@ -12,13 +12,16 @@
         $stdClass = $_POST['stdClass'];
         $stdPass = $stdID;
 
+        $pass_hash = password_hash($stdPass, PASSWORD_DEFAULT);
+        // $code = md5(uniqid(rand(), true));
+
         if($stdGender == 'Nam') {
             $gender = 1;
         } else {
             $gender = 0;
         }
 
-        $sql = "INSERT INTO student VALUES ('$stdID', '$stdName', '$gender', '$stdBirthday', '$stdPhone', '$stdEmail', '$stdAddress', '$stdPass', '$stdClass')";
+        $sql = "INSERT INTO student VALUES ('$stdID', '$stdName', '$gender', '$stdBirthday', '$stdPhone', '$stdEmail', '$stdAddress', '$pass_hash', '$stdClass')";
         $result = mysqli_query($con, $sql);
 
         if($result == 1) {
