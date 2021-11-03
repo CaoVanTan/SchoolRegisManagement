@@ -25,6 +25,11 @@ include '../../config/config.php';
                                 <label for="subjectName" class="form-label">Tên môn học:</label>
                                 <input type="text" class="form-control" id="subjectName" name="subjectName">
                             </div>
+                            <div class="mb-3 col-6">
+                                <label for="credits" class="form-label">Tín chỉ:</label>
+                                <input type="text" class="form-control" id="credits" name="credits">
+                            </div>
+
 
                             <div class="mb-3 col-6 ">
                                 <label for="subjectName1" class="form-label">Khoa:</label>
@@ -49,8 +54,7 @@ include '../../config/config.php';
                             <div class="text-end">
                                 <button type="submit" name="btnSaveAdd" class="btn btn-primary w-auto form_btn mt-3">Lưu
                                     lại</button>
-                                <button type="" id="btnCancelAddTeacher"
-                                    class="btn btn-danger w-auto form_btn mt-3">Hủy</button>
+                                    <a href="./teacher_subject_information.php" id="btnCancelEditSubject" class="btn btn-danger w-auto form_btn mt-3">Hủy</a>
                             </div>
 
                         </form>

@@ -17,6 +17,7 @@ include '../../partials-front/teacher_menu.php';
                         <tr>
                             <th scope="col">Mã môn học</th>
                             <th scope="col">Tên môn học</th>
+                            <th scope="col">Tín chỉ</th>
                             <th scope="col">Khoa</th>
                             <th scope="col">Sửa</th>
                             <th scope="col">Xóa</th>
