@@ -6,8 +6,9 @@
         $subjectID =$_POST['subjectID'];
         $subjectName = $_POST['subjectName'];
         $subjectOffice = $_POST['subjectName1'];
+        $credits=$_POST['credits'];
 
-        $sql = "UPDATE subject SET subject_name = '$subjectName', office_id = '$subjectOffice' where subject_id = '$subjectID'";
+        $sql = "UPDATE subject SET subject_name = '$subjectName',credits=' $credits', office_id = '$subjectOffice' where subject_id = '$subjectID'";
         $result = mysqli_query($con, $sql);
         
 

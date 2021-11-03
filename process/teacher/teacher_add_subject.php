@@ -1,14 +1,14 @@
-
 <?php
 include '../../config/config.php';
 if (isset($_POST['btnSaveAdd'])) {
     $id = $_POST['subjectID'];
     $name = $_POST['subjectName'];
     $name1 =$_POST['subjectName1'];
+    $credits=$_POST['credits'];
     
     //? câu lệnh
-    $sql = "INSERT INTO subject (subject_id,subject_name,office_id)
-    VALUES ('$id','$name','$name1')";
+    $sql = "INSERT INTO subject (subject_id,subject_name,credits,office_id)
+    VALUES ('$id','$name', '$credits','$name1')";
    
 
 
