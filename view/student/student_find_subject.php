@@ -21,12 +21,8 @@ include '../../partials-front/student_menu.php';
                             <th scope="col">Môn học</th>
                             <th scope="col">Giảng viên</th>
                             <th scope="col">Đăng ký</th>
-<<<<<<< HEAD
                             <th scope="col">Hủy đăng ký</th>
                         </tr> 
-=======
-                        </tr>
->>>>>>> master
                     </thead>
                     <tbody>
                     <?php
@@ -48,7 +44,7 @@ include '../../partials-front/student_menu.php';
                                   '<td>'.$row['subject_id'].'</td>',
                                    '<td>'.$row['subject_name'].'</td>',
                                    '<td>'.$row['teacher_name'].'</td>',
-                                   '<td><a href="../../process/student/student_registration.php?subject_id='.$row['subject_id'].'"><input type="submit" class = "btn btn-primary" value="Register"></a></td>',
+                                   '<td><a href="../../process/student/student_registration.php?subject_id='.$row['subject_id'].'"><i class="fas fa-user-plus"></i></a></td>',
                                    '<td><a href="../../process/student/student_cancel_registration.php?subject_id='.$row['subject_id'].'"> <i class="fas fa-trash-alt"></i></a></td>',
                                '</tr>';
                                  }
