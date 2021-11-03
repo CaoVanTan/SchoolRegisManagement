@@ -14,14 +14,14 @@
                      Danh sách đăng kí
                 </a>
             </li>
-            
+
             <li class="notification2">
                 <a class="text-decoration-none h-100 d-flex align-items-center" href="../../view/teacher/teacher_subject_information.php">
                     <i class="fas fa-book-open"></i>
                     Thông tin môn học
                 </a>
             </li>
-           
+
         </ul>
         <div class="userProfile w-100 position-absolute start-0 bottom-0">
             <a class="d-flex align-items-center w-100 h-100 text-white text-decoration-none" href="../../view/teacher/teacher_information.php">

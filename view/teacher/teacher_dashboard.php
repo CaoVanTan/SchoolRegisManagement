@@ -7,28 +7,24 @@ include '../../partials-front/teacher_menu.php';
 <main class="d-flex justify-content-end">
     <div class="col-10">
         <div class="container">
-            <div class="row justify-content-between">
-        
-                <a href="../../view/teacher/teacher_subject_information.php"
-                    class="manage_item col-5 btn btn-primary my-4 mx-3 d-flex justify-content-center align-items-center ">
+            <div class="row justify-content-start">
+                <div class="col-6 px-4">
+                    <a href="./teacher_subject_information.php" class="manage_item my-4 d-block bg-primary text-center">
+                        Thông tin môn học
+                    </a>
+                </div>
 
+                <div class="col-6 px-4">
+                    <a href="./teacher_student_register.php" class="manage_item my-4 d-block bg-primary text-center">
+                        Sinh viên đăng kí
+                    </a>
+                </div>
 
-                    <span class="icon"> Thông tin Khóa học </span>
-
-
-
-
-
-                </a>
-                <a href="../../view/teacher/teacher_student_register.php"
-                    class="manage_item col-5 btn btn-primary my-4 mx-3 d-flex justify-content-center align-items-center">
-                     Sinh viên đăng kí 
-                </a>
-                <a href="../../view/teacher/teacher_information.php"
-                    class="manage_item col-5 btn btn-primary my-4 mx-3 d-flex justify-content-center align-items-center">
-                     Thông tin cá nhân 
-                </a>
-
+                <div class="col-6 px-4">
+                    <a href="./teacher_information.php" class="manage_item my-4 d-block bg-primary text-center">
+                        Thông tin cá nhân
+                    </a>
+                </div>
             </div>
         </div>
     </div>

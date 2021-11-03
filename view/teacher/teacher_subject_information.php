@@ -10,7 +10,7 @@ include '../../partials-front/teacher_menu.php';
             <div class="row justify-content-between">
 
                 <h1 class="text-center">Thông tin môn học</h1>
-                <a href="./teacher_add_subject.php" class="btn btn-success "><i class="fas fa-user-plus"></i> Thêm thông tin môn học</a>
+                <a href="./teacher_add_subject.php" class="btn btn-success"><i class="fas fa-user-plus"></i> Thêm thông tin môn học</a>
 
                 <table class="table mt-5 border border-1 table table-bordered">
                     <thead>
@@ -21,18 +21,18 @@ include '../../partials-front/teacher_menu.php';
                             <th scope="col">Khoa</th>
                             <th scope="col">Sửa</th>
                             <th scope="col">Xóa</th>
-                            
+
 
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                            
-                            include '../../process/teacher/teacher_subject_information_model.php'; 
-                        
-                        
+
+                            include '../../process/teacher/teacher_subject_information_model.php';
+
+
                         ?>
-                 
+
                     </tbody>
                 </table>
 
