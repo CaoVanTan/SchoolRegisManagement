@@ -39,7 +39,7 @@
                     Quản lý đăng ký học
                 </a>
                 <ul class="dropdown-menu w-100 p-0 border-0 rounded-0">
-                    <li><a class="dropdown-item d-flex align-items-center h-100" href="#">Mở/đóng đợt đăng ký</a></li>
+                    <li><a class="dropdown-item d-flex align-items-center h-100" href="../admin/open_register.php">Mở/đóng đợt đăng ký</a></li>
                     <li><a class="dropdown-item d-flex align-items-center h-100" href="../admin/list_student_register.php">Danh sách sinh viên</a></li>
                 </ul>
             </div>
