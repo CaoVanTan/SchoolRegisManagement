@@ -17,7 +17,7 @@ if (!isset($_SESSION['loginSuccess'])) {
 
         <div class="row justify-content-start">
             <div class="col-3 px-4">
-                <a href="./admin_student.php" class="manage_item my-4 d-block bg-success text-center">
+                <a href="./admin_student.php" class="manage_item my-4 d-block bg-primary text-center">
                     Quản lý Sinh viên
                 </a>
             </div>
@@ -27,18 +27,23 @@ if (!isset($_SESSION['loginSuccess'])) {
                 </a>
             </div>
             <div class="col-3 px-4">
-                <a href="./admin_subject.php" class="manage_item my-4 d-block bg-warning text-center">
+                <a href="./admin_subject.php" class="manage_item my-4 d-block bg-primary text-center">
                     Quản lý Môn học
                 </a>
             </div>
             <div class="col-3 px-4">
-                <a href="./admin_curriculum.php" class="manage_item my-4 d-block bg-info text-center">
+                <a href="./admin_curriculum.php" class="manage_item my-4 d-block bg-primary text-center">
                     Quản lý Chương trình học
                 </a>
             </div>
             <div class="col-3 px-4">
-                <a href="#" class="manage_item my-4 d-block bg-secondary text-center">
-                    Quản lý Đăng ký học
+                <a href="./list_student_register.php" class="manage_item my-4 d-block bg-primary text-center">
+                    D/S Sinh viên đăng ký học
+                </a>
+            </div>
+            <div class="col-3 px-4">
+                <a href="./open_register.php" class="manage_item my-4 d-block bg-primary text-center">
+                    Mở đợt đăng ký học
                 </a>
             </div>
         </div>
