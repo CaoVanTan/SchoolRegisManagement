@@ -3,17 +3,10 @@ include '../../partials-front/header.php';
 include '../../partials-front/header_nav.php';
 include '../../partials-front/student_menu.php';
 ?>
-<<<<<<< HEAD
-<div class="col-10 float-end">
-    <div class="container">
-        <div class="row">
-            <h3 class="mt-5 mb-5" style="text-align: center">DANH SÁCH MÔN HỌC ĐĂNG KÝ
-=======
 <main class="col-10 float-end">
     <div class="container">
         <div class="row">
             <h3 class="mt-5 mb-5" style="text-align: center">THÔNG TIN MÔN HỌC
->>>>>>> c8e8148ce2fc057d6aad7244ef4d4c482d13cc87
             </h3>
             <div class="col-md-12" >
                 <table class="table ">
@@ -49,8 +42,4 @@ include '../../partials-front/student_menu.php';
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-</div>
-=======
 </main>
->>>>>>> c8e8148ce2fc057d6aad7244ef4d4c482d13cc87
