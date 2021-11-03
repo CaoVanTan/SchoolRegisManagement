@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2021 at 03:07 PM
+-- Generation Time: Nov 02, 2021 at 03:37 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -71,18 +71,10 @@ INSERT INTO `course` (`course_id`, `year_start`, `year_end`) VALUES
 CREATE TABLE `curriculum` (
   `office_id` int(10) UNSIGNED NOT NULL,
   `subject_id` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_id` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `school_year` int(11) NOT NULL,
-  `semester` int(11) NOT NULL,
-  `credits` int(11) NOT NULL
+  `semester` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `curriculum`
---
-
-INSERT INTO `curriculum` (`office_id`, `subject_id`, `school_year`, `semester`, `credits`) VALUES
-(1, 'CSE485', 2021, 1, 3),
-(1, 'MMT1', 2021, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -95,13 +87,6 @@ CREATE TABLE `list_register` (
   `std_id` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `subject_id` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `list_register`
---
-
-INSERT INTO `list_register` (`teacher_id`, `std_id`, `subject_id`) VALUES
-(1, '1951060995', 'CSE485');
 
 -- --------------------------------------------------------
 
@@ -120,7 +105,11 @@ CREATE TABLE `office` (
 
 INSERT INTO `office` (`office_id`, `office_name`) VALUES
 (1, 'Công nghệ thông tin'),
-(2, 'Kinh tế');
+(2, 'Kinh tế và Quản lý'),
+(3, 'Cơ khí'),
+(4, 'Điện - Điện tử'),
+(5, 'Công trình'),
+(6, 'Kỹ thuật tài nguyên nước');
 
 -- --------------------------------------------------------
 
@@ -145,8 +134,9 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`std_id`, `std_name`, `std_gender`, `std_birthday`, `std_phone`, `std_email`, `std_address`, `std_pass`, `class_id`) VALUES
-('1951060995', 'Cao Văn Tân', 1, '2001-10-21', '0123345678', '1951060995@e.tlu.edu.vn', 'Thanh Hóa', '1951060995', 1),
-('1951060996', 'Nguyễn Văn Mạnh', 1, '2001-11-16', '0123345678', '1951060996@e.tlu.edu.vn', 'Thanh Hóa', '1951060996', 3);
+('1951060995', 'Cao Văn Tân', 1, '2001-10-21', '0123345675', '1951060995@e.tlu.edu.vn', 'Thanh Hóa', '$2y$10$H7MSnqO2PptP8AJLLFBU1upDYtjGF6Ae7morjC6up0EpKb4yvRWSu', 1),
+('1951060996', 'Lương Chí Kiên', 1, '2001-01-12', '0123485324', '1951060996@e.tlu.edu.vn', 'Thái Nguyên', '$2y$10$SxSSWhmBHfP/50hKzgJzAOwdwYb2SMK6LwEHdmKFjBM.L6dT/IbzW', 1),
+('1951060997', 'Nguyễn Văn Mạnh', 1, '0000-00-00', '0123456654', '1951060997@e.tlu.edu.vn', 'Thanh Hóa', '$2y$10$xgzl28QNH.X05DJSr53/JO1cxgaRFpnCSaQ7ptoNpy9JIcJpp0VzC', 3);
 
 -- --------------------------------------------------------
 
@@ -157,6 +147,7 @@ INSERT INTO `student` (`std_id`, `std_name`, `std_gender`, `std_birthday`, `std_
 CREATE TABLE `subject` (
   `subject_id` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `subject_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `credits` int(10) UNSIGNED NOT NULL,
   `office_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -164,9 +155,15 @@ CREATE TABLE `subject` (
 -- Dumping data for table `subject`
 --
 
-INSERT INTO `subject` (`subject_id`, `subject_name`, `office_id`) VALUES
-('CSE485', 'Công nghệ Web', 1),
-('MMT1', 'Mạng máy tính', 1);
+INSERT INTO `subject` (`subject_id`, `subject_name`, `credits`, `office_id`) VALUES
+('CSE0484', 'Cơ sở dữ liệu', 4, 1),
+('CSE280', 'Ngôn ngữ lập trình', 4, 1),
+('CSE281', 'Cấu trúc dữ liệu và giải thuật', 3, 1),
+('CSE284', 'Lập trình JAVA', 3, 1),
+('CSE290', 'Tiếng Anh chuyên ngành', 3, 1),
+('CSE480', 'Phân tích & Thiết kế HTTT', 3, 1),
+('CSE485', 'Công nghệ Web', 3, 1),
+('MATH254', 'Xác suất thống kê', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -192,8 +189,12 @@ CREATE TABLE `teacher` (
 --
 
 INSERT INTO `teacher` (`teacher_id`, `teacher_name`, `teacher_gender`, `teacher_birthday`, `teacher_address`, `teacher_phone`, `teacher_email`, `teacher_pass`, `office_id`, `subject_id`) VALUES
-(1, 'Kiều Tuấn Dũng', 1, '1987-10-05', 'Hà Nội', '0123456789', 'tuankd@e.tlu.edu.vn', 'abc', 1, 'CSE485'),
-(2, 'Đoàn Thị Quế', 0, '1990-10-10', 'Hà Nội', '0982759798', 'que@e.tlu.edu.vn', 'abc', 1, 'MMT1');
+(5, 'Nguyễn Văn Nam', 1, '1985-07-12', 'Hà Nội', '0112345674', 'namnv@e.tlu.edu.vn', '$2y$10$EESvZ/BnObv2afrQ/H2AbOR/99P/sd4dGXGb8hTXK.IfDGA7/mhvO', 1, 'CSE480'),
+(6, 'Kiều Tuấn Dũng', 1, '1985-06-14', 'Hà Nội', '0123456756', 'dungkt@e.tlu.edu.vn', '$2y$10$NZcPWv8wGLeGB35WwEshquJOcKe3jcc6TjL2bcqzQiFwMYiPkR6cS', 1, 'CSE485'),
+(7, 'Nguyễn Huy Đức', 1, '1970-06-17', 'Hà Nội', '0156786795', 'ducnh@e.tlu.edu.vn', '$2y$10$tzYeDZIVSUEMmKQxUCeCf.2NH/OvGT3nLdA2VhAe2q2wtKynoyb72', 1, 'CSE281'),
+(8, 'Trần Thị Ngân', 0, '1987-06-18', 'Hà Nội', '0196564245', 'ngantt@e.tlu.edu.vn', '$2y$10$EAduQROoeOzjQ/jFMe1M/eL32/9Z9vXDEpHDFNW3PBuT4Y6Khg7U6', 1, 'CSE280'),
+(9, 'Nguyễn Hằng Phương', 0, '1989-06-12', 'Hà Nội', '0978657448', 'phuongnh@e.tlu.edu.vn', '$2y$10$3UCRpT4/aXV9.Vb9eZLJg.gq.9686OFkZm2.D8FNm.2LI8MP0s3vW', 1, 'CSE290'),
+(10, 'Nguyễn Thị Lý', 0, '1987-08-05', 'Hà Nội', '0934545767', 'lynt@e.tlu.edu.vn', '$2y$10$mJwzWqu.EW89wEcpVe.KIuuow4CkbT4b.9B7VuLHNJNFmLnb8RWwm', 1, 'MATH254');
 
 --
 -- Indexes for dumped tables
@@ -218,7 +219,8 @@ ALTER TABLE `course`
 --
 ALTER TABLE `curriculum`
   ADD KEY `office_id` (`office_id`),
-  ADD KEY `subject_id` (`subject_id`);
+  ADD KEY `subject_id` (`subject_id`),
+  ADD KEY `course_id` (`course_id`);
 
 --
 -- Indexes for table `list_register`
@@ -270,13 +272,13 @@ ALTER TABLE `class`
 -- AUTO_INCREMENT for table `office`
 --
 ALTER TABLE `office`
-  MODIFY `office_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `office_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `teacher_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `teacher_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
@@ -294,7 +296,8 @@ ALTER TABLE `class`
 --
 ALTER TABLE `curriculum`
   ADD CONSTRAINT `curriculum_ibfk_1` FOREIGN KEY (`office_id`) REFERENCES `office` (`office_id`),
-  ADD CONSTRAINT `curriculum_ibfk_2` FOREIGN KEY (`subject_id`) REFERENCES `subject` (`subject_id`);
+  ADD CONSTRAINT `curriculum_ibfk_2` FOREIGN KEY (`subject_id`) REFERENCES `subject` (`subject_id`),
+  ADD CONSTRAINT `curriculum_ibfk_3` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`);
 
 --
 -- Constraints for table `list_register`
