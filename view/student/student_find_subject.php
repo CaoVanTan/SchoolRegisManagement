@@ -3,7 +3,11 @@ include '../../partials-front/header.php';
 include '../../partials-front/header_nav.php';
 include '../../partials-front/student_menu.php';
 ?>
+<<<<<<< HEAD
 <div class="col-10 float-end">
+=======
+<main class="col-10 float-end">
+>>>>>>> c8e8148ce2fc057d6aad7244ef4d4c482d13cc87
     <div class="container">
         <div class="mt-5 ms-2 row">
             <h2 style="text-align: center">ĐĂNG KÝ HỌC</h2>
@@ -20,6 +24,7 @@ include '../../partials-front/student_menu.php';
                             <th scope="col">Môn học</th>
                             <th scope="col">Giảng viên</th>
                             <th scope="col">Đăng ký</th>
+<<<<<<< HEAD
                         </tr> 
                     </thead>
                     <tbody>
@@ -28,6 +33,16 @@ include '../../partials-front/student_menu.php';
                          if(isset($_POST['submit'])){
                              $txt_find = $_POST['search'];
                  
+=======
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+
+                         if(isset($_POST['submit'])){
+                             $txt_find = $_POST['search'];
+
+>>>>>>> c8e8148ce2fc057d6aad7244ef4d4c482d13cc87
                              include '../../config/config.php';
 
                              $sql = "SELECT * FROM teacher e INNER JOIN subject o on e.subject_id = o.subject_id
@@ -45,7 +60,11 @@ include '../../partials-front/student_menu.php';
                                '</tr>';
                                  }
                          }
+<<<<<<< HEAD
                  
+=======
+
+>>>>>>> c8e8148ce2fc057d6aad7244ef4d4c482d13cc87
                  ?>
 
                     </tbody>
@@ -53,5 +72,9 @@ include '../../partials-front/student_menu.php';
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 </div>
+=======
+</main>
+>>>>>>> c8e8148ce2fc057d6aad7244ef4d4c482d13cc87
 <?php
