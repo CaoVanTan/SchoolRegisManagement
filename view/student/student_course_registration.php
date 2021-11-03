@@ -43,7 +43,7 @@ include '../../partials-front/student_menu.php';
                                 '<td>'.$row['subject_name'].'</td>',
                                 '<td>'.$row['teacher_name'].'</td>',
                                 // '<td><a href=""><input type="checkbox" name="check" value = "yes"> </a></td>',
-                               '<td><a href="../../process/student/student_registration.php?subject_id='.$row['subject_id'].'"><i class="fas fa-user-plus"></i></a></td>',
+                               '<td><a href="../../process/student/student_registration.php?subject_id='.$row['subject_id'].'"><input type="submit" class = "btn btn-primary" value="Register"></a></td>',
                                '<td><a href="../../process/student/student_cancel_registration.php?subject_id='.$row['subject_id'].'"> <i class="fas fa-trash-alt"></i></a></td>',
                             '</tr>';
                               }

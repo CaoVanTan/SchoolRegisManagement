@@ -16,6 +16,7 @@ include '../../partials-front/student_menu.php';
                             <th scope="col">Mã môn học</th>
                             <th scope="col">Tên môn học</th>
                             <th scope="col">Giảng viên</th>
+                            <th scope="col">Số tín chỉ</th>
 
                         </tr>
                     </thead>
@@ -33,6 +34,7 @@ include '../../partials-front/student_menu.php';
                                 '<td>'.$row['subject_id'].'</td>',
                                 '<td>'.$row['subject_name'].'</td>',
                                 '<td>'.$row['teacher_name'].'</td>',
+                                '<td>'.$row['credits'].'</td>',
                             '</tr>';
                               }
                           }

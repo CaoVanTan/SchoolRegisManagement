@@ -17,9 +17,11 @@ include '../../partials-front/student_menu.php';
                     <thead>
                         <tr class="table-success">
                             <th scope="col">STT</th>
+                            <th scope="col">Mã môn học</th>
                             <th scope="col">Môn học</th>
                             <th scope="col">Giảng viên</th>
                             <th scope="col">Đăng ký</th>
+                            <th scope="col">Hủy đăng ký</th>
                         </tr> 
                     </thead>
                     <tbody>
@@ -39,9 +41,11 @@ include '../../partials-front/student_menu.php';
                                   while($row = mysqli_fetch_array($result)){
                                   echo '<tr>',
                                   ' <th >'.$i++.'</th>',
+                                  '<td>'.$row['subject_id'].'</td>',
                                    '<td>'.$row['subject_name'].'</td>',
                                    '<td>'.$row['teacher_name'].'</td>',
-                                   '<td><input type="checkbox" name="a" id=""></td>',
+                                   '<td><a href="../../process/student/student_registration.php?subject_id='.$row['subject_id'].'"><input type="submit" class = "btn btn-primary" value="Register"></a></td>',
+                                   '<td><a href="../../process/student/student_cancel_registration.php?subject_id='.$row['subject_id'].'"> <i class="fas fa-trash-alt"></i></a></td>',
                                '</tr>';
                                  }
                          }
