@@ -3,11 +3,13 @@ include '../../partials-front/header.php';
 include '../../partials-front/header_nav.php';
 include '../../partials-front/student_menu.php';
 include '../../config/config.php';
-$sql = "SELECT * FROM student e INNER JOIN class o on e.class_id = o.class_id INNER JOIN office a on  o.office_id = a.office_id INNER JOIN course c on o.course_id = c.course_id ";
- $result = mysqli_query($con,$sql);
- $row = mysqli_fetch_assoc($result);
 ?>
-<div class="col-10 float-end">
+<?php
+$sql = "SELECT * FROM student e INNER JOIN class o on e.class_id = o.class_id INNER JOIN office a on  o.office_id = a.office_id INNER JOIN course c on o.course_id = c.course_id ";
+$result = mysqli_query($con,$sql);
+$row = mysqli_fetch_assoc($result);
+?>
+<main class="col-10 float-end">
     <div class="container">
         <div class="mt-5 mb-5 row ">
             <div class="col-12">
@@ -111,4 +113,4 @@ $sql = "SELECT * FROM student e INNER JOIN class o on e.class_id = o.class_id IN
             </div>
         </div>
     </div>
-</div>
+</main>

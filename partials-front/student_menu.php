@@ -11,7 +11,7 @@
             <li>
                 <a class="text-decoration-none h-100 d-flex align-items-center" href="student_subject_info.php">
                     <i class="fas fa-users"></i>
-                    Thông tin khóa học
+                    Thông tin môn học
                 </a>
             </li>
             <li class="notification2">

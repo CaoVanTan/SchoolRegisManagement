@@ -5,7 +5,7 @@ include '../../partials-front/student_menu.php';
 ?>
 
 
-<div class="col-10 float-end">
+<main class="col-10 float-end">
     <div class="container">
         <div class="row">
             <h2 class="mt-5" style="text-align: center">KẾT QUẢ ĐĂNG KÝ HỌC
@@ -27,7 +27,6 @@ include '../../partials-front/student_menu.php';
                     <tbody>
                         <?php
                               include '../../config/config.php';
-                              
                               $sql = "SELECT * FROM list_register a INNER JOIN subject o on a.subject_id = o.subject_id  INNER JOIN teacher e on a.teacher_id = e.teacher_id INNER JOIN curriculum c on o.subject_id = c.subject_id INNER JOIN student b on a.std_id = b.std_id";
                               $result = mysqli_query($con,$sql);
                                   $i = 1;
@@ -49,4 +48,4 @@ include '../../partials-front/student_menu.php';
             </div>
         </div>
     </div>
-</div>
+</main>

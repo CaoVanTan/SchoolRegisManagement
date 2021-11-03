@@ -3,10 +3,10 @@ include '../../partials-front/header.php';
 include '../../partials-front/header_nav.php';
 include '../../partials-front/student_menu.php';
 ?>
-<div class="col-10 float-end">
+<main class="col-10 float-end">
     <div class="container">
         <div class="row">
-            <h3 class="mt-5 mb-5" style="text-align: center">DANH SÁCH MÔN HỌC ĐĂNG KÝ
+            <h3 class="mt-5 mb-5" style="text-align: center">THÔNG TIN MÔN HỌC
             </h3>
             <div class="col-md-12" >
                 <table class="table ">
@@ -44,4 +44,4 @@ include '../../partials-front/student_menu.php';
             </div>
         </div>
     </div>
-</div>
+</main>
