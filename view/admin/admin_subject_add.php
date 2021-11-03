@@ -1,5 +1,5 @@
-<section id="overlayAddSubject" class="overlay">
-    <div id="modelAddSubject" class="container form-container">
+<section class="overlay">
+    <div class="model container form-container">
         <form method="post" action="../../process/admin/add_subject.php" class="row justify-content-start bg-white form_content">
             <div class="form_title mb-3">Thêm Môn Học</div>
             <div class="mb-3 col-6">
@@ -32,7 +32,7 @@
 
             <div class="text-end">
                 <button type="submit" name="btnSaveAddSubject" class="btn btn-primary w-auto form_btn mt-3">Lưu lại</button>
-                <button type="reset" id="btnCancelAddSubject" class="btn btn-danger w-auto form_btn mt-3">Hủy</button>
+                <button type="reset" class="btnCancelAdd btn btn-danger w-auto form_btn mt-3">Hủy</button>
             </div>
         </form>
     </div>

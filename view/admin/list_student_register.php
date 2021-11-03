@@ -19,15 +19,16 @@ include '../../partials-front/admin_menu.php';
                         <th scope="col">Tên sinh viên</th>
                         <th scope="col">Giới tính</th>
                         <th scope="col">Ngày sinh</th>
-                        <th scope="col">Email</th>
                         <th scope="col">Lớp</th>
-                        <th scope="col">Sửa</th>
-                        <th scope="col">Xóa</th>
+                        <th scope="col">Môn học</th>
+                        <th scope="col">Giảng viên</th>
+                        <!-- <th scope="col">Sửa</th>
+                        <th scope="col">Xóa</th> -->
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    include '../../process/admin/get_student.php';
+                    include '../../process/admin/get_list_register.php';
 
                     $stt = 1;
                     if (mysqli_num_rows($result) > 0) {
@@ -47,24 +48,23 @@ include '../../partials-front/admin_menu.php';
                                         <td>' . $row['std_name'] . '</td>
                                         <td>' . $gender . '</td>
                                         <td>' . $birthday . '</td>
-                                        <td>' . $row['std_address'] . '</td>
-                                        <td>' . $row['std_phone'] . '</td>
-                                        <td>' . $row['std_email'] . '</td>
                                         <td>' . $row['class_name'] . '</td>
-                                        <td>
-                                            <a href="./admin_student_edit.php?id=' . $row['std_id'] . '" id="btnEditStd" class="btnEditStd d-block w-100 border-0 text-start bg-transparent">
-                                                <i class="text-dark ms-2 fas fa-edit"></i>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="../../process/admin/delete_student.php?id=' . $row['std_id'] . '" id="btnDelStd" class="btnDelStd d-block w-100 border-0 text-start bg-transparent">
-                                                <i class="text-dark ms-2 fas fa-trash-alt"></i>
-                                            </a>
-                                        </td>
+                                        <td>' . $row['subject_name'] . '</td>
+                                        <td>' . $row['teacher_name'] . '</td>
                                     </tr>';
                         }
                     }
                     ?>
+                    <!-- <td>
+                        <a href="./admin_student_edit.php?id=' . $row['std_id'] . '" id="btnEditStd" class="btnEditStd d-block w-100 border-0 text-start bg-transparent">
+                            <i class="text-dark ms-2 fas fa-edit"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="../../process/admin/delete_student.php?id=' . $row['std_id'] . '" id="btnDelStd" class="btnDelStd d-block w-100 border-0 text-start bg-transparent">
+                            <i class="text-dark ms-2 fas fa-trash-alt"></i>
+                        </a>
+                    </td> -->
                 </tbody>
             </table>
         </div>

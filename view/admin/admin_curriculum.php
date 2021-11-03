@@ -11,7 +11,7 @@ include '../../partials-front/admin_menu.php';
         </div>
 
         <div class="row mx-1">
-            <button type="button" id="btnAddSubject" class="btn btn-success w-auto my-2">
+            <button type="button" class="btnAdd btn btn-success w-auto my-2">
                 Thêm Chương Trình Học
             </button>
             <table class="table">
@@ -41,10 +41,10 @@ include '../../partials-front/admin_menu.php';
                                     <td>' . $row['subject_name'] . '</td>
                                     <td>' . $row['school_year'] . '</td>
                                     <td>' . $row['semester'] . '</td>
-                                    <td>' . $row['course_name'] . '</td>
+                                    <td>' . $row['course_id'] . '</td>
                                     <td>' . $row['office_name'] . '</td>
-                                    <td><a href="./admin_subject_edit.php?id=' . $row['subject_id'] . '" id="btnEditSubject" class="d-block w-100 border-0 text-start bg-transparent"><i class="text-dark ms-2 fas fa-edit"></i></a></td>
-                                    <td><a href="../../process/admin/delete_subject.php?id=' . $row['subject_id'] . '" id="btnDelSubject" class="d-block w-100 border-0 text-start bg-transparent"><i class="text-dark ms-2 fas fa-trash-alt"></i></a></td>
+                                    <td><a href="./admin_curri_edit.php?id=' . $row['subject_id'] . '" id="btnEditCurri" class="d-block w-100 border-0 text-start bg-transparent"><i class="text-dark ms-2 fas fa-edit"></i></a></td>
+                                    <td><a href="../../process/admin/delete_curri.php?id=' . $row['subject_id'] . '" id="btnDelCurri" class="d-block w-100 border-0 text-start bg-transparent"><i class="text-dark ms-2 fas fa-trash-alt"></i></a></td>
                                 </tr>';
                         }
                     }
@@ -56,6 +56,6 @@ include '../../partials-front/admin_menu.php';
 </main>
 
 <?php
-include './admin_subject_add.php';
+include './admin_curri_add.php';
 include '../../partials-front/footer.php';
 ?>

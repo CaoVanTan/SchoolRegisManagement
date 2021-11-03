@@ -11,7 +11,7 @@ include '../../partials-front/admin_menu.php';
         </div>
 
         <div class="row mx-1">
-            <button type="button" id="btnAddStudent" class="btn btn-success w-auto my-2">
+            <button type="button" class="btnAdd btn btn-success w-auto my-2">
                 Thêm Sinh Viên
             </button>
             <table class="table">
