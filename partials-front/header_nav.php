@@ -1,4 +1,4 @@
-<header class="header position-fixed top-0 w-100">
+<header class="header position-fixed top-0 w-100" style="z-index: 1000;">
     <div class="container h-100 d-flex justify-content-between align-items-center">
         <a href="#" class="logo">
             <img class="logo-img" src="http://tlus.edu.vn/wp-content/uploads/2018/06/LogoDHTL-300x300.png" alt="Logo">

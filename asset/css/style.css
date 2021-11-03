@@ -211,3 +211,23 @@ main {
   margin-left: 12px;
   border-radius: 5px;
 }
+
+.userProfile {
+  height: 64px;
+}
+
+.userProfile a {
+  padding-left: 15px;
+  font-size: 15px;
+}
+
+.userProfile a:hover {
+  color: #fff;
+  background: #000;
+}
+
+.userProfile a i {
+  font-size: 18px;
+  color: #bdb8d7;
+  width: 25px;
+}

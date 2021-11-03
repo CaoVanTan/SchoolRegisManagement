@@ -22,7 +22,7 @@ if (isset($_POST['btnLogin'])) {
 
         if (password_verify($password, $pass_hash_std)) {
             $_SESSION['loginSuccess'] = $username;
-            header("Location: ../view/admin/admin_dashboard.php");
+            header("Location: ../view/student/student_dashboard.php");
         } else {
             header("Location: ../view/login.php");
         }
@@ -32,7 +32,7 @@ if (isset($_POST['btnLogin'])) {
 
         if (password_verify($password, $pass_hash_teacher)) {
             $_SESSION['loginSuccess'] = $username;
-            header("Location: ../view/admin/admin_dashboard.php");
+            header("Location: ../view/teacher/teacher_dashboard.php");
         } else {
             header("Location: ../view/login.php");
         }

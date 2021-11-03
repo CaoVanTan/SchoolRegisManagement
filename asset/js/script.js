@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
   // Model add
   $(".btnAdd").click(function () {
     $(".overlay").show();
@@ -11,14 +10,13 @@ $(document).ready(function () {
     $(".model").hide();
   });
 
-
   // Process Login
-  $('#btnLogin').click(function () {
-    var userName = $('#inputUserName').val();
-    var password = $('#inputPassword').val();
+  $("#btnLogin").click(function () {
+    var userName = $("#inputUserName").val();
+    var password = $("#inputPassword").val();
 
-    if(userName == '' || password == '') {
-      alert('Bạn phải nhập tài khoản và mật khẩu!');
+    if (userName == "" || password == "") {
+      alert("Bạn phải nhập tài khoản và mật khẩu!");
     }
   });
 });
