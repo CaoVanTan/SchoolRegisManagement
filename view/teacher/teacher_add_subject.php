@@ -9,9 +9,6 @@ include '../../config/config.php';
 <main class="d-flex justify-content-end">
     <div class="col-10 ">
         <div class="container">
-            <div class="row justify-content-between">
-                <section id="overlayAddTeacher" class="overlay">
-                    <div id="modelAddTeacher" class="container form-container">
                         <form action="../../process/teacher/teacher_add_subject.php" method="post" class="row justify-content-start form_content">
                             <h1 class="text-center">Thêm khóa học</h1>
                             <div class="mb-3 col-6">
@@ -58,9 +55,7 @@ include '../../config/config.php';
                             </div>
 
                         </form>
-                    </div>
-                </section>
-            </div>
+                    
         </div>
     </div>
 </main>

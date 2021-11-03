@@ -18,7 +18,7 @@
             <li class="notification2">
                 <a class="text-decoration-none h-100 d-flex align-items-center" href="../../view/teacher/teacher_subject_information.php">
                     <i class="fas fa-book-open"></i>
-                    Thông tin Khóa học
+                    Thông tin môn học
                 </a>
             </li>
            

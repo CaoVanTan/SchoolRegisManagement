@@ -9,12 +9,9 @@ include '../../config/config.php';
 <main class="d-flex justify-content-end">
     <div class="col-10 ">
         <div class="container">
-            <div class="row justify-content-between">
-                <section id="overlayAddTeacher" class="overlay">
-                    <div id="modelAddTeacher" class="container form-container">
                         <form action="../../process/teacher/teacher_edit_subject.php" method="post"
                             class="row justify-content-start form_content">
-                            <h1 class="text-center">Chỉnh sửa khóa học</h1>
+                            <h1 class="text-center">Chỉnh sửa môn học</h1>
                             <?php
                             if(isset($_GET['id'])) {
                             $id = $_GET['id'];
@@ -71,9 +68,7 @@ include '../../config/config.php';
                             </div>
 
                         </form>
-                    </div>
-                </section>
-            </div>
+                 
         </div>
     </div>
 </main>
