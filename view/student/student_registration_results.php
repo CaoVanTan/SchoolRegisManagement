@@ -25,6 +25,7 @@ if (!isset($_SESSION)) {
                             <th scope="col">Năm học</th>
                             <th scope="col">Học kì</th>
                             <th scope="col">Số tín chỉ</th>
+                            <th scope="col">Hủy đăng ký</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,6 +45,7 @@ if (!isset($_SESSION)) {
                                       '<td>'.$row['school_year'].'</td>',
                                       '<td>'.$row['semester'].'</td>',
                                       '<td>'.$row['credits'].'</td>',
+                                      '<td><a href="../../process/student/student_cancel_registration.php?subject_id=' .  $row['subject_id'] . '"> <i class="fas fa-trash-alt"></i></a></td>',
                                   '</tr>';
                                   }
                         ?>
