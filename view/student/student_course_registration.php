@@ -18,7 +18,7 @@ include '../../partials-front/student_menu.php';
 
                     <form class="row flex-row align-items-center col-4" action="" method="post">
                         <?php
-                        include '../../config/config.php';
+                        include_once '../../config/config.php';
                         $sql = 'SELECT MAX(id) as maxId, MAX(start_time) as maxStart, MAX(end_time) as maxEnd FROM regis_period';
                         $result = mysqli_query($con, $sql);
                         if (mysqli_num_rows($result) > 0) {

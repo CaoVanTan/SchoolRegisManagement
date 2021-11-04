@@ -7,12 +7,30 @@
         <div class="dropdown h-100 menu">
             <button class="btn dropdown-toggle h-100 text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 <?php
-                session_start();
+                if (!isset($_SESSION)) {
+                    session_start();
+                }
 
-                $user_name = $_SESSION['loginSuccess'];
-                    echo $user_name;
-                    echo $_SESSION['loginSuccess'];
-                    // echo 'abc';
+                if (isset($_SESSION['loginSuccess'])) {
+                    $user_name = $_SESSION['loginSuccess'];
+                    include_once '../../config/config.php';
+
+                    $sql_std = "SELECT * FROM student WHERE std_id = '$user_name'";
+                    $result_std = mysqli_query($con, $sql_std);
+
+                    $sql_teacher = "SELECT * FROM teacher WHERE teacher_email = '$user_name'";
+                    $result_teacher = mysqli_query($con, $sql_teacher);
+
+                    if (mysqli_num_rows($result_std) > 0) {
+                        $row_std = mysqli_fetch_assoc($result_std);
+                        echo $row_std['std_name'];
+                    } else if (mysqli_num_rows($result_teacher) > 0) {
+                        $row_teacher = mysqli_fetch_assoc($result_teacher);
+                        echo $row_teacher['teacher_name'];
+                    } else {
+                        echo $user_name;
+                    }
+                }
                 ?>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
