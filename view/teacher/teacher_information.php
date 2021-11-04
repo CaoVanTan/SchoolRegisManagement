@@ -18,13 +18,7 @@ include '../../process/teacher/teacher_information.php';
                 
                 <div class="row ">
                     <div class="col-12">
-                        <div class="ms-2 mb-3 row">
-                            <label class="col-sm-2 ">Mã giảng viên:</label>
-                            <div class="col-sm-8">
-                                <input type="text" readonly value="<?php echo $row['teacher_id'] ?> " class="form-control"
-                                    >
-                            </div>
-                        </div>
+                        
                         <div class="ms-2 mb-3 row">
                             <label for="staticEmail" class="col-sm-2 col-form-label">Tên giảng viên: </label>
                             <div class="col-sm-8">
