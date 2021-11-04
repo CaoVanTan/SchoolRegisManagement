@@ -2,6 +2,7 @@
 include '../../partials-front/header.php';
 include '../../partials-front/header_nav.php';
 include '../../partials-front/student_menu.php';
+session_start();
 ?>
 <main class="col-10 float-end">
     <div class="container">
@@ -26,28 +27,26 @@ include '../../partials-front/student_menu.php';
                     </thead>
                     <tbody>
                     <?php
-
+                          
                          if(isset($_POST['submit'])){
                              $txt_find = $_POST['search'];
-
+                             $username = $_SESSION['loginSuccess'] ;
                              include '../../config/config.php';
-
-                             $sql = "SELECT * FROM teacher e INNER JOIN subject o on e.subject_id = o.subject_id
-                             WHERE subject_name like '%$txt_find%' or teacher_name like '%$txt_find%'";
-
+    
+                             $sql = "SELECT * FROM  student b INNER JOIN class c  on b.class_id = c.class_id INNER JOIN office a on c.office_id = a.office_id  INNER JOIN teacher e on  a.office_id = e.office_id INNER JOIN subject o on e.subject_id = o.subject_id  WHERE  subject_name like '%$txt_find%' && b.std_id = '$username'";
                              $result = mysqli_query($con,$sql);
 
                               $i = 1;
-                                  while($row = mysqli_fetch_array($result)){
+                                $row = mysqli_fetch_assoc($result);
                                   echo '<tr>',
-                                  ' <th >'.$i++.'</th>',
+                                  ' <th >'.$i.'</th>',
                                   '<td>'.$row['subject_id'].'</td>',
                                    '<td>'.$row['subject_name'].'</td>',
                                    '<td>'.$row['teacher_name'].'</td>',
                                    '<td><a href="../../process/student/student_registration.php?subject_id='.$row['subject_id'].'"><i class="fas fa-user-plus"></i></a></td>',
                                    '<td><a href="../../process/student/student_cancel_registration.php?subject_id='.$row['subject_id'].'"> <i class="fas fa-trash-alt"></i></a></td>',
                                '</tr>';
-                                 }
+                                 
                          }
                  ?>
 

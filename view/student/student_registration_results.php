@@ -2,6 +2,7 @@
 include '../../partials-front/header.php';
 include '../../partials-front/header_nav.php';
 include '../../partials-front/student_menu.php';
+session_start();
 ?>
 
 
@@ -26,8 +27,9 @@ include '../../partials-front/student_menu.php';
                     </thead>
                     <tbody>
                         <?php
+                        $username = $_SESSION['loginSuccess'] ;
                               include '../../config/config.php';
-                              $sql = "SELECT * FROM list_register a INNER JOIN subject o on a.subject_id = o.subject_id  INNER JOIN teacher e on a.teacher_id = e.teacher_id INNER JOIN curriculum c on o.subject_id = c.subject_id INNER JOIN student b on a.std_id = b.std_id";
+                              $sql = "SELECT * FROM list_register a INNER JOIN subject o on a.subject_id = o.subject_id  INNER JOIN teacher e on a.teacher_id = e.teacher_id INNER JOIN curriculum c on o.subject_id = c.subject_id INNER JOIN student b on a.std_id = b.std_id Where a.std_id = '$username'";
                               $result = mysqli_query($con,$sql);
                                   $i = 1;
                                   while($row = mysqli_fetch_array($result)){

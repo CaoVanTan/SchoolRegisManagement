@@ -2,6 +2,10 @@
 include '../../partials-front/header.php';
 include '../../partials-front/header_nav.php';
 include '../../partials-front/student_menu.php';
+session_start();
+if (!isset($_SESSION['loginSuccess'])) {
+    header("Location: ../login.php");
+}
 ?>
 
 <main class="d-flex justify-content-end">

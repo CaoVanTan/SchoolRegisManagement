@@ -2,6 +2,7 @@
 include '../../partials-front/header.php';
 include '../../partials-front/header_nav.php';
 include '../../partials-front/student_menu.php';
+session_start();
 ?>
 <main class="col-10 float-end">
     <div class="container">
@@ -62,7 +63,9 @@ include '../../partials-front/student_menu.php';
                     </thead>
                     <tbody>
                         <?php
-                        $sql = "SELECT * FROM subject e INNER JOIN teacher o on e.subject_id = o.subject_id";
+                          $username = $_SESSION['loginSuccess'] ;
+                       $sql = "SELECT * FROM  teacher e  INNER JOIN subject o on e.subject_id = o.subject_id INNER JOIN office a on a.office_id = e.office_id INNER JOIN class c on c.office_id = a.office_id  INNER JOIN student b on c.class_id = b.class_id Where b.std_id = '$username'";
+                       // $sql = "SELECT * FROM subject e INNER JOIN teacher o on e.subject_id = o.subject_id";
                         $result = mysqli_query($con, $sql);
                         $i = 1;
                         if (mysqli_num_rows($result) > 0) {
@@ -73,8 +76,8 @@ include '../../partials-front/student_menu.php';
                                 '<td>' . $row['subject_name'] . '</td>',
                                 '<td>' . $row['teacher_name'] . '</td>',
                                 // '<td><a href=""><input type="checkbox" name="check" value = "yes"> </a></td>',
-                                '<td><a href="../../process/student/student_registration.php?subject_id=' . $row['subject_id'] . '"><i class="fas fa-user-plus"></i></a></td>',
-                                '<td><a href="../../process/student/student_cancel_registration.php?subject_id=' . $row['subject_id'] . '"> <i class="fas fa-trash-alt"></i></a></td>',
+                                '<td><a href="../../process/student/student_registration.php?subject_id=' .  $row['subject_id'] . '"><i class="fas fa-user-plus"></i></a></td>',
+                                '<td><a href="../../process/student/student_cancel_registration.php?subject_id=' .  $row['subject_id'] . '"> <i class="fas fa-trash-alt"></i></a></td>',
                                 '</tr>';
                             }
                         }
