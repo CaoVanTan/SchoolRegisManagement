@@ -24,7 +24,6 @@ if (!isset($_SESSION)) {
                             <th scope="col">Môn học</th>
                             <th scope="col">Giảng viên</th>
                             <th scope="col">Đăng ký</th>
-                            <th scope="col">Hủy đăng ký</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -46,7 +45,6 @@ if (!isset($_SESSION)) {
                                    '<td>'.$row['subject_name'].'</td>',
                                    '<td>'.$row['teacher_name'].'</td>',
                                    '<td><a href="../../process/student/student_registration.php?subject_id='.$row['subject_id'].'"><i class="fas fa-user-plus"></i></a></td>',
-                                   '<td><a href="../../process/student/student_cancel_registration.php?subject_id='.$row['subject_id'].'"> <i class="fas fa-trash-alt"></i></a></td>',
                                '</tr>';
                                  
                          }
