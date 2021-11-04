@@ -2,7 +2,9 @@
 include '../../partials-front/header.php';
 include '../../partials-front/header_nav.php';
 include '../../partials-front/student_menu.php';
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 ?>
 <main class="col-10 float-end">
     <div class="container">
@@ -23,7 +25,7 @@ session_start();
                             <th scope="col">Giảng viên</th>
                             <th scope="col">Đăng ký</th>
                             <th scope="col">Hủy đăng ký</th>
-                        </tr> 
+                        </tr>
                     </thead>
                     <tbody>
                     <?php
@@ -31,7 +33,7 @@ session_start();
                          if(isset($_POST['submit'])){
                              $txt_find = $_POST['search'];
                              $username = $_SESSION['loginSuccess'] ;
-                             include '../../config/config.php';
+                             include_once '../../config/config.php';
     
                              $sql = "SELECT * FROM  student b INNER JOIN class c  on b.class_id = c.class_id INNER JOIN office a on c.office_id = a.office_id  INNER JOIN teacher e on  a.office_id = e.office_id INNER JOIN subject o on e.subject_id = o.subject_id  WHERE  subject_name like '%$txt_find%' && b.std_id = '$username'";
                              $result = mysqli_query($con,$sql);
@@ -57,3 +59,5 @@ session_start();
     </div>
 </main>
 <?php
+include '../../partials-front/footer.php';
+?>

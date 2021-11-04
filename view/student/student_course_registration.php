@@ -2,7 +2,9 @@
 include '../../partials-front/header.php';
 include '../../partials-front/header_nav.php';
 include '../../partials-front/student_menu.php';
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 ?>
 <main class="col-10 float-end">
     <div class="container">
@@ -13,13 +15,13 @@ session_start();
                     <form class="flex-row align-items-center col-8" action="./student_find_subject.php" method="post">
                         <h5 class="mb-4">DANH SÁCH HỌC PHẦN</h5>
                         <label for="search" class="w-auto">Tìm kiếm:</label>
-                        <input type="text" id="search" name="search" class="w-auto mx-2" placeholder="Nhập tên môn học ">
+                        <input type="text" id="search" name="search" class="w-auto mx-2 px-2" style="padding-top:2px; padding-bottom:2px;" placeholder="Nhập tên môn học ">
                         <input type="submit" class="btn-secondary w-auto ms-3 p-1 border-0 rounded" name="submit" value="Tìm kiếm">
                     </form>
 
                     <form class="row flex-row align-items-center col-4" action="" method="post">
                         <?php
-                        include '../../config/config.php';
+                        include_once '../../config/config.php';
                         $sql = 'SELECT MAX(id) as maxId, MAX(start_time) as maxStart, MAX(end_time) as maxEnd FROM regis_period';
                         $result = mysqli_query($con, $sql);
                         if (mysqli_num_rows($result) > 0) {
@@ -33,8 +35,8 @@ session_start();
 
                             $time_current = date("Y/m/d");
 
-                            echo    '<div id="date_start">Ngày bắt đầu: '.$date_start.'</div>
-                                    <div id="date_end">Ngày kết thúc: '.$date_end.'</div>';
+                            echo    '<div id="date_start">Ngày bắt đầu: ' . $date_start . '</div>
+                                    <div id="date_end">Ngày kết thúc: ' . $date_end . '</div>';
                             // if($time_current <= $date_end) {
 
                             // }
@@ -108,7 +110,5 @@ session_start();
 //   $sql2 = "INSERT INTO list_register(teacher_id, std_id, subject_id) VALUES ('$teacher_id', '$std_id', '$subject_id')";
 //   $res = mysqli_query($con,$sql2);
 
-
-
-
+include '../../partials-front/footer.php';
 ?>

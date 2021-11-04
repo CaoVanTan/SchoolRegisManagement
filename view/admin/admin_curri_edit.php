@@ -2,7 +2,7 @@
 include '../../partials-front/header.php';
 include '../../partials-front/header_nav.php';
 include '../../partials-front/admin_menu.php';
-include '../../config/config.php';
+include_once '../../config/config.php';
 ?>
 
 <main class="col-10 float-end">
