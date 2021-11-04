@@ -49,3 +49,7 @@ include '../../partials-front/student_menu.php';
         </div>
     </div>
 </main>
+
+<?php
+include '../../partials-front/footer.php';
+?>

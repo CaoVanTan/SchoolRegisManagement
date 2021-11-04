@@ -1,7 +1,7 @@
-<?php 
+<?php
      // Quy trình 4 bước
     // Bước 01: Đã tạo sẵn, gọi lại thôi
-    include '../../config/config.php';
+    include_once '../../config/config.php';
      //Bước 02: Thực hiện TRUY VẤN
      $sql = "SELECT s.*,c.*,su.*,l.* FROM student s, class c,subject su,list_register l  where l.std_id=s.std_id and l.subject_id=su.subject_id and c.class_id=s.class_id"  ;
      $result = mysqli_query($con,$sql); //Lưu kết quả trả về vào result
@@ -19,13 +19,13 @@
             }
              echo '<td>'.$gender.'</td>';
              echo '<td>'.$row['std_birthday'].'</td>';
-             
+
              echo '<td>'.$row['std_email'].'</td>';
-            
+
              echo '<td>'.$row['subject_name'].'</td>';
              echo '<td>'.$row['class_name'].'</td>';
 
              echo '</tr>';
          }
-     } 
+     }
 ?>

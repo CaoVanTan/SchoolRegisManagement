@@ -58,3 +58,5 @@ include '../../partials-front/student_menu.php';
     </div>
 </main>
 <?php
+include '../../partials-front/footer.php';
+?>

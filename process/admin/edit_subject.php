@@ -1,5 +1,5 @@
 <?php
-    include '../../config/config.php';
+    include_once '../../config/config.php';
 
     if(isset($_POST['btnSaveEditSubject'])) {
         $subjectID = $_POST['subjectID'];

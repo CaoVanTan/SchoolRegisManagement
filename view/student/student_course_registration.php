@@ -12,7 +12,7 @@ include '../../partials-front/student_menu.php';
                     <form class="flex-row align-items-center col-8" action="./student_find_subject.php" method="post">
                         <h5 class="mb-4">DANH SÁCH HỌC PHẦN</h5>
                         <label for="search" class="w-auto">Tìm kiếm:</label>
-                        <input type="text" id="search" name="search" class="w-auto mx-2" placeholder="Nhập tên môn học ">
+                        <input type="text" id="search" name="search" class="w-auto mx-2 px-2" style="padding-top:2px; padding-bottom:2px;" placeholder="Nhập tên môn học ">
                         <input type="submit" class="btn-secondary w-auto ms-3 p-1 border-0 rounded" name="submit" value="Tìm kiếm">
                     </form>
 
@@ -32,8 +32,8 @@ include '../../partials-front/student_menu.php';
 
                             $time_current = date("Y/m/d");
 
-                            echo    '<div id="date_start">Ngày bắt đầu: '.$date_start.'</div>
-                                    <div id="date_end">Ngày kết thúc: '.$date_end.'</div>';
+                            echo    '<div id="date_start">Ngày bắt đầu: ' . $date_start . '</div>
+                                    <div id="date_end">Ngày kết thúc: ' . $date_end . '</div>';
                             // if($time_current <= $date_end) {
 
                             // }
@@ -105,7 +105,5 @@ include '../../partials-front/student_menu.php';
 //   $sql2 = "INSERT INTO list_register(teacher_id, std_id, subject_id) VALUES ('$teacher_id', '$std_id', '$subject_id')";
 //   $res = mysqli_query($con,$sql2);
 
-
-
-
+include '../../partials-front/footer.php';
 ?>

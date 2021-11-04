@@ -3,7 +3,7 @@ $id = $_GET['id'];
 echo $id;
 
 //?mở kết nối
-include '../../config/config.php';
+include_once '../../config/config.php';
 
 //? set câu lệnh truy vấn
 $sql = "DELETE FROM subject WHERE subject_id='$id'";
