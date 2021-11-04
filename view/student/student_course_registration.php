@@ -37,9 +37,9 @@ if (!isset($_SESSION)) {
 
                             echo    '<div id="date_start">Ngày bắt đầu: ' . $date_start . '</div>
                                     <div id="date_end">Ngày kết thúc: ' . $date_end . '</div>';
-                            // if($time_current <= $date_end) {
-
-                            // }
+                            if($time_current <= $date_end && $time_current >= $date_start) {
+                                echo $time_current;
+                            }
 
                         }
                         ?>
@@ -94,21 +94,5 @@ if (!isset($_SESSION)) {
 </main>
 
 <?php
-//  $sql = "SELECT * FROM  teacher e  INNER JOIN subject o on e.subject_id = o.subject_id INNER JOIN office a on a.office_id = e.office_id INNER JOIN class c on c.office_id = a.office_id  INNER JOIN student b on c.class_id = b.class_id";
-//  $result = mysqli_query($con, $sql);
-//  $row = mysqli_fetch_array($result);
-//  $check = isset($_POST['check']);
-//     $sql = "SELECT * FROM  teacher e  INNER JOIN subject o on e.subject_id = o.subject_id INNER JOIN office a on a.office_id = e.office_id INNER JOIN class c on c.office_id = a.office_id  INNER JOIN student b on c.class_id = b.class_id";
-//     $result = mysqli_query($con, $sql);
-//     $row = mysqli_fetch_array($result);
-//    $sql1 = "SELECT * FROM  $sql Where subject_id = '".$row['subject_id']."'";
-//     $result1 = mysqli_query($con, $sql1);
-//     $row1 = mysqli_fetch_array($result1);
-// $teacher_id = $row['teacher_id'];
-// $std_id = $row['std_id'];
-// $subject_id = $row['subject_id'];
-//   $sql2 = "INSERT INTO list_register(teacher_id, std_id, subject_id) VALUES ('$teacher_id', '$std_id', '$subject_id')";
-//   $res = mysqli_query($con,$sql2);
-
 include '../../partials-front/footer.php';
 ?>

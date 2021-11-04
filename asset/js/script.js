@@ -22,7 +22,7 @@ $(document).ready(function () {
   //Check ma mon hoc
 $("#btnSaveAdd").click(function () {
   var subjectID = $("#subjectID").val();
- 
+  
 
   if ( subjectID == "" ) {
     alert("Trùng mã môn học");
