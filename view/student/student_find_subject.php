@@ -22,7 +22,7 @@ include '../../partials-front/student_menu.php';
                             <th scope="col">Giảng viên</th>
                             <th scope="col">Đăng ký</th>
                             <th scope="col">Hủy đăng ký</th>
-                        </tr> 
+                        </tr>
                     </thead>
                     <tbody>
                     <?php
@@ -30,7 +30,7 @@ include '../../partials-front/student_menu.php';
                          if(isset($_POST['submit'])){
                              $txt_find = $_POST['search'];
 
-                             include '../../config/config.php';
+                             include_once '../../config/config.php';
 
                              $sql = "SELECT * FROM teacher e INNER JOIN subject o on e.subject_id = o.subject_id
                              WHERE subject_name like '%$txt_find%' or teacher_name like '%$txt_find%'";

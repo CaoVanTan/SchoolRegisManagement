@@ -3,7 +3,9 @@ include '../../partials-front/header.php';
 include '../../partials-front/header_nav.php';
 include '../../partials-front/admin_menu.php';
 
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 if (!isset($_SESSION['loginSuccess'])) {
     header("Location: ../login.php");
 }
@@ -11,9 +13,6 @@ if (!isset($_SESSION['loginSuccess'])) {
 
 <main class="col-10 float-end">
     <div class="container">
-        <div class="row title">
-            Quản Lý Hệ Thống
-        </div>
 
         <div class="row justify-content-start">
             <div class="col-3 px-4">

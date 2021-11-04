@@ -2,7 +2,7 @@
 include '../../partials-front/header.php';
 include '../../partials-front/header_nav.php';
 include '../../partials-front/student_menu.php';
-include '../../config/config.php';
+include_once '../../config/config.php';
 ?>
 <?php
 $sql = "SELECT * FROM student e INNER JOIN class o on e.class_id = o.class_id INNER JOIN office a on  o.office_id = a.office_id INNER JOIN course c on o.course_id = c.course_id ";

@@ -22,7 +22,7 @@ include '../../partials-front/student_menu.php';
                     </thead>
                     <tbody>
                         <?php
-                          include '../../config/config.php';
+                          include_once '../../config/config.php';
 
                           $sql = "SELECT * FROM subject e INNER JOIN teacher o on e.subject_id = o.subject_id";
                           $result = mysqli_query($con, $sql);
