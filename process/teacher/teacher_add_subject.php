@@ -10,7 +10,7 @@ if (isset($_POST['btnSaveAdd'])) {
     $sql1 = "SELECT * FROM subject WHERE subject_id ='$id'";
     $result = mysqli_query($con, $sql1);
     if (mysqli_num_rows($result) > 0) {
-        echo ('Mã môn học đã tồn tại');
+        echo "Mã môn học đã tồn tại. <a href='../../view/teacher/teacher_add_subject.php'>Quay lại</a>";
     } else {
         $sql = "INSERT INTO subject (subject_id,subject_name,credits,office_id)
             VALUES ('$id','$name', '$credits','$name1')";

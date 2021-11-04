@@ -3,6 +3,13 @@ include '../../partials-front/header.php';
 include '../../partials-front/header_nav.php';
 include '../../partials-front/teacher_menu.php';
 include_once '../../config/config.php';
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+
+    $sql_cr = "SELECT * FROM subject WHERE subject_id = '$id'";
+    $result_cr = mysqli_query($con, $sql_cr);
+    $row_cr = mysqli_fetch_assoc($result_cr);
+}
 ?>
 
 
@@ -11,15 +18,7 @@ include_once '../../config/config.php';
         <div class="container">
             <form action="../../process/teacher/teacher_edit_subject.php" method="post" class="row justify-content-start form_content">
                 <h1 class="text-center">Chỉnh sửa môn học</h1>
-                <?php
-                if (isset($_GET['id'])) {
-                    $id = $_GET['id'];
-
-                    $sql_cr = "SELECT subject_id FROM subject WHERE subject_id = '$id'";
-                    $result_cr = mysqli_query($con, $sql_cr);
-                    $row_cr = mysqli_fetch_assoc($result_cr);
-                }
-                ?>
+               
 
                 <div class="mb-3 col-6">
                     <label for="subjectID" class="form-label">Mã môn học:</label>
@@ -30,11 +29,11 @@ include_once '../../config/config.php';
 
                 <div class="mb-3 col-6">
                     <label for="subjectName" class="form-label">Tên môn học:</label>
-                    <input type="text" class="form-control" id="subjectName" name="subjectName">
+                    <input type="text" class="form-control" id="subjectName" value="<?php echo $row_cr['subject_name']; ?>" name="subjectName">
                 </div>
                 <div class="mb-3 col-6">
                     <label for="credits" class="form-label">Tín chỉ:</label>
-                    <input type="text" class="form-control" id="credits" name="credits">
+                    <input type="text" class="form-control" id="credits" value="<?php echo $row_cr['credits']; ?>" name="credits">
                 </div>
 
                 <div class="mb-3 col-6 ">

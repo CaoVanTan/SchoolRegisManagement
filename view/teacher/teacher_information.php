@@ -43,7 +43,11 @@ include '../../process/teacher/teacher_information.php';
                         <div class="ms-2 mb-3 row">
                             <label for="staticEmail" class="col-sm-2 col-form-label">Ngày sinh: </label>
                             <div class="col-sm-8">
-                                <input type="text" readonly value="<?php echo $row['teacher_birthday'] ?> "
+                                <input type="text" readonly value="<?php 
+                                 $date = explode('-', $row['teacher_birthday']);
+                                 $birthday = $date[2] . '-' . $date[1] . '-' . $date[0];
+                                
+                                echo $birthday ?> "
                                     class="form-control" >
                             </div>
                         </div>
