@@ -6,7 +6,14 @@
 
         <div class="dropdown h-100 menu">
             <button class="btn dropdown-toggle h-100 text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Admin
+                <?php
+                session_start();
+
+                $user_name = $_SESSION['loginSuccess'];
+                    echo $user_name;
+                    echo $_SESSION['loginSuccess'];
+                    // echo 'abc';
+                ?>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li>
