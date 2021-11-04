@@ -19,4 +19,15 @@ $(document).ready(function () {
       alert("Bạn phải nhập tài khoản và mật khẩu!");
     }
   });
+  //Check ma mon hoc
+$("#btnSaveAdd").click(function () {
+  var subjectID = $("#subjectID").val();
+ 
+
+  if ( subjectID == "" ) {
+    alert("Trùng mã môn học");
+  }
 });
+});
+
+
