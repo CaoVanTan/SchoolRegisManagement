@@ -49,7 +49,6 @@ if (!isset($_SESSION)) {
 
             </div>
         </div>
-        <!-- <form action="" method="post"> -->
         <div class="mt-5 ms-2 row">
             <div class="col-md-12">
                 <table class="table">
@@ -60,14 +59,12 @@ if (!isset($_SESSION)) {
                             <th scope="col">Môn học</th>
                             <th scope="col">Giảng viên</th>
                             <th scope="col">Đăng ký</th>
-                            <th scope="col">Hủy đăng ký</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                           $username = $_SESSION['loginSuccess'] ;
                        $sql = "SELECT * FROM  teacher e  INNER JOIN subject o on e.subject_id = o.subject_id INNER JOIN office a on a.office_id = e.office_id INNER JOIN class c on c.office_id = a.office_id  INNER JOIN student b on c.class_id = b.class_id Where b.std_id = '$username'";
-                       // $sql = "SELECT * FROM subject e INNER JOIN teacher o on e.subject_id = o.subject_id";
                         $result = mysqli_query($con, $sql);
                         $i = 1;
                         if (mysqli_num_rows($result) > 0) {
@@ -77,9 +74,7 @@ if (!isset($_SESSION)) {
                                 '<td>' . $row['subject_id'] . '</td>',
                                 '<td>' . $row['subject_name'] . '</td>',
                                 '<td>' . $row['teacher_name'] . '</td>',
-                                // '<td><a href=""><input type="checkbox" name="check" value = "yes"> </a></td>',
                                 '<td><a href="../../process/student/student_registration.php?subject_id=' .  $row['subject_id'] . '"><i class="fas fa-user-plus"></i></a></td>',
-                                '<td><a href="../../process/student/student_cancel_registration.php?subject_id=' .  $row['subject_id'] . '"> <i class="fas fa-trash-alt"></i></a></td>',
                                 '</tr>';
                             }
                         }
@@ -89,7 +84,6 @@ if (!isset($_SESSION)) {
                 </table>
             </div>
         </div>
-        <!-- </form> -->
     </div>
 </main>
 
