@@ -3,7 +3,7 @@
     // Bước 01: Đã tạo sẵn, gọi lại thôi
     include '../../config/config.php';
      //Bước 02: Thực hiện TRUY VẤN
-     $sql = "SELECT su.subject_id,su.subject_name,su.credits,o.office_name FROM subject su,office o where o.office_id=su.office_id";
+     $sql = "SELECT su.subject_id,su.subject_name,su.credits,o.office_name,t.* FROM subject su,office o,teacher t where o.office_id=su.office_id and su.subject_id=t.subject_id and t.teacher_email='$user_name' ";
      $result = mysqli_query($con,$sql); //Lưu kết quả trả về vào result
      //Bước 03: Phân tích và xử lý kết quả
      if(mysqli_num_rows($result)>0){
