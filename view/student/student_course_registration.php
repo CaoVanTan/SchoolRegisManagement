@@ -37,7 +37,17 @@ if (!isset($_SESSION)) {
 
                             echo    '<div id="date_start">Ngày bắt đầu: ' . $date_start . '</div>
                                     <div id="date_end">Ngày kết thúc: ' . $date_end . '</div>';
+                            // if ($time_current > $date_end && $time_current < $date_start) {
+                            //     echo "<script>
+                            //     let dis = document.getElementById('register');
 
+                            //     if (dis.className === 'register'){
+                            //         dis.className = 'disabled';
+                            //     }
+                            //     </script>";
+                            //     // else {
+                            //     //     dis.className = 'active';
+                            // }
                         }
                         ?>
 
@@ -60,8 +70,8 @@ if (!isset($_SESSION)) {
                     </thead>
                     <tbody>
                         <?php
-                          $username = $_SESSION['loginSuccess'] ;
-                       $sql = "SELECT * FROM  teacher e  INNER JOIN subject o on e.subject_id = o.subject_id INNER JOIN office a on a.office_id = e.office_id INNER JOIN class c on c.office_id = a.office_id  INNER JOIN student b on c.class_id = b.class_id Where b.std_id = '$username'";
+                        $username = $_SESSION['loginSuccess'];
+                        $sql = "SELECT * FROM  teacher e  INNER JOIN subject o on e.subject_id = o.subject_id INNER JOIN office a on a.office_id = e.office_id INNER JOIN class c on c.office_id = a.office_id  INNER JOIN student b on c.class_id = b.class_id Where b.std_id = '$username'";
                         $result = mysqli_query($con, $sql);
                         $i = 1;
                         if (mysqli_num_rows($result) > 0) {
@@ -71,7 +81,11 @@ if (!isset($_SESSION)) {
                                 '<td>' . $row['subject_id'] . '</td>',
                                 '<td>' . $row['subject_name'] . '</td>',
                                 '<td>' . $row['teacher_name'] . '</td>',
-                                '<td><a href="../../process/student/student_registration.php?subject_id=' .  $row['subject_id'] . '"><i class="fas fa-user-plus"></i></a></td>',
+                                '<td>
+                                    <a id="register" class="ms-3 register" href="../../process/student/student_registration.php?subject_id=' .  $row['subject_id'] . '">
+                                        <i class="fas fa-user-plus"></i>
+                                    </a>
+                                </td>',
                                 '</tr>';
                             }
                         }
