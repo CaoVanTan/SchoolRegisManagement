@@ -7,26 +7,5 @@
      $result = mysqli_query($con,$sql); //Lưu kết quả trả về vào result
      //Bước 03: Phân tích và xử lý kết quả
      $gender;
-     if(mysqli_num_rows($result)>0){
-         while($row=mysqli_fetch_assoc($result)){
-             echo '<tr>';
-             echo '<th scope="row">'.$row['teacher_id'].'</th>';
-             echo '<td>'.$row['teacher_name'].'</td>';
-             
-             if($row['teacher_gender']){
-                 $gender='Nam';
-             }else{
-                 $gender='Nữ';
-             }
-             echo '<td>'.$gender.'</td>';
-             echo '<td>'.$row['teacher_birthday'].'</td>';
-             echo '<td>'.$row['teacher_address'].'</td>';
-             echo '<td>'.$row['teacher_phone'].'</td>';
-             echo '<td>'.$row['teacher_email'].'</td>';
-             echo '<td>'.$row['teacher_pass'].'</td>';
-             
-
-             echo '</tr>';
-         }
-     } 
+     $row=mysqli_fetch_assoc($result);
 ?>
