@@ -33,7 +33,7 @@ if (isset($_GET['id'])) {
                 </div>
                 <div class="mb-3 col-6">
                     <label for="credits" class="form-label">Tín chỉ:</label>
-                    <input type="text" class="form-control" id="credits" value="<?php echo $row_cr['credits']; ?>" name="credits">
+                    <input type="number" class="form-control" id="credits" value="<?php echo $row_cr['credits']; ?>" name="credits">
                 </div>
 
                 <div class="mb-3 col-6 ">

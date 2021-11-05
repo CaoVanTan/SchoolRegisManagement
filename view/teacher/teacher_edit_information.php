@@ -73,7 +73,7 @@ include '../../process/teacher/teacher_information.php';
                             <div class="ms-2 mb-3 row">
                                 <label for="" class="col-sm-2 col-form-label">Email: </label>
                                 <div class="col-sm-8">
-                                    <input type="text" value="<?php echo $row['teacher_email'] ?> " class="form-control"
+                                    <input type="email" value="<?php echo $row['teacher_email'] ?> " class="form-control"
                                         name="teacherEmail">
                                 </div>
                             </div>
