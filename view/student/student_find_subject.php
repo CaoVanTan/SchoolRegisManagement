@@ -33,12 +33,16 @@ if (!isset($_SESSION)) {
                              $txt_find = $_POST['search'];
                              $username = $_SESSION['loginSuccess'] ;
                              include_once '../../config/config.php';
-    
-                             $sql = "SELECT * FROM  student b INNER JOIN class c  on b.class_id = c.class_id INNER JOIN office a on c.office_id = a.office_id  INNER JOIN teacher e on  a.office_id = e.office_id INNER JOIN subject o on e.subject_id = o.subject_id  WHERE  subject_name like '%$txt_find%' && b.std_id = '$username'";
+                             $sql = "SELECT * FROM  teacher e  INNER JOIN subject o on e.subject_id = o.subject_id INNER JOIN curriculum a on o.subject_id = a.subject_id  WHERE  subject_name like '%$txt_find%' ";
                              $result = mysqli_query($con,$sql);
 
                               $i = 1;
-                                $row = mysqli_fetch_assoc($result);
+                                while($row = mysqli_fetch_assoc($result)){
+                                    $sql1 = 'SELECT * FROM regis_period';
+                                    $result1 = mysqli_query($con,$sql1);
+                                    $row1 = mysqli_fetch_array($result1);
+                                        if($row['school_year'] == $row1['school_year'] && $row['semester'] == $row1['semester'])
+                                       {
                                   echo '<tr>',
                                   ' <th >'.$i.'</th>',
                                   '<td>'.$row['subject_id'].'</td>',
@@ -46,7 +50,8 @@ if (!isset($_SESSION)) {
                                    '<td>'.$row['teacher_name'].'</td>',
                                    '<td><a href="../../process/student/student_registration.php?subject_id='.$row['subject_id'].'"><i class="fas fa-user-plus"></i></a></td>',
                                '</tr>';
-                                 
+                                }
+                            }
                          }
                  ?>
 

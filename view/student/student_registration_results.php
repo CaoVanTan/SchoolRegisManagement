@@ -34,8 +34,9 @@ if (!isset($_SESSION)) {
                               include_once '../../config/config.php';
                               $sql = "SELECT * FROM list_register a INNER JOIN subject o on a.subject_id = o.subject_id  INNER JOIN teacher e on a.teacher_id = e.teacher_id INNER JOIN curriculum c on o.subject_id = c.subject_id INNER JOIN student b on a.std_id = b.std_id Where a.std_id = '$username'";
                               $result = mysqli_query($con,$sql);
-                                  $i = 1;
-                                  while($row = mysqli_fetch_array($result)){
+                              $i = 1;
+                              while($row = mysqli_fetch_array($result)){
+                             
                                       echo '<tr>',
                                       '<th>'.$i++.'</th>',
                                       '<td>'.$row['subject_id'].'</td>',
@@ -47,7 +48,8 @@ if (!isset($_SESSION)) {
                                       '<td>'.$row['credits'].'</td>',
                                       '<td><a href="../../process/student/student_cancel_registration.php?subject_id=' .  $row['subject_id'] . '"> <i class="fas fa-trash-alt"></i></a></td>',
                                   '</tr>';
-                                  }
+            
+                            }
                         ?>
                     </tbody>
                 </table>

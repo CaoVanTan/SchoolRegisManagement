@@ -81,12 +81,15 @@ if (!isset($_SESSION)) {
                     <tbody>
                         <?php
                         $username = $_SESSION['loginSuccess'];
-                        $sql = "SELECT * FROM  teacher e  INNER JOIN subject o on e.subject_id = o.subject_id INNER JOIN office a on a.office_id = e.office_id
-                                INNER JOIN class c on c.office_id = a.office_id  INNER JOIN student b on c.class_id = b.class_id Where b.std_id = '$username'";
+                        $sql = "SELECT * FROM  teacher e  INNER JOIN subject o on e.subject_id = o.subject_id INNER JOIN curriculum a on o.subject_id = a.subject_id ";
                         $result = mysqli_query($con, $sql);
                         $i = 1;
-                        if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_assoc($result)) {
+                                $sql1 = 'SELECT * FROM regis_period';
+                                $result1 = mysqli_query($con,$sql1);
+                                $row1 = mysqli_fetch_array($result1);
+                                    if($row['school_year'] == $row1['school_year'] && $row['semester'] == $row1['semester'])
+                                   {
                                 echo '<tr>',
                                 ' <th >' . $i++ . '</th>',
                                 '<td>' . $row['subject_id'] . '</td>',
@@ -98,7 +101,8 @@ if (!isset($_SESSION)) {
                                     </a>
                                 </td>',
                                 '</tr>';
-                            }
+                                   }
+                            
                         }
                         ?>
 
