@@ -12,31 +12,41 @@ if (!isset($_SESSION)) {
             <h2 style="text-align: center">ĐĂNG KÝ HỌC</h2>
             <div class="mt-5 col-md-12">
                 <div class="row">
-                    <form class="flex-row align-items-center col-8" action="./student_find_subject.php" method="post">
+                    <form class="flex-row align-items-center col-6" action="./student_find_subject.php" method="post">
                         <h5 class="mb-4">DANH SÁCH HỌC PHẦN</h5>
                         <label for="search" class="w-auto">Tìm kiếm:</label>
                         <input type="text" id="search" name="search" class="w-auto mx-2 px-2" style="padding-top:2px; padding-bottom:2px;" placeholder="Nhập tên môn học ">
                         <input type="submit" class="btn-secondary w-auto ms-3 p-1 border-0 rounded" name="submit" value="Tìm kiếm">
                     </form>
 
-                    <form class="row flex-row align-items-center col-4" action="" method="post">
+                    <form class="row flex-row align-items-center col-6" action="" method="post">
                         <?php
                         include_once '../../config/config.php';
-                        $sql = 'SELECT MAX(id) as maxId, MAX(start_time) as maxStart, MAX(end_time) as maxEnd FROM regis_period';
+                        $sql_maxId = 'SELECT MAX(id) as maxId FROM regis_period';
+                        $result_maxId = mysqli_query($con, $sql_maxId);
+                        $row_maxId = mysqli_fetch_assoc($result_maxId);
+
+                        $sql = 'SELECT * FROM regis_period WHERE id = ' . $row_maxId['maxId'] . '';
                         $result = mysqli_query($con, $sql);
                         if (mysqli_num_rows($result) > 0) {
                             $row = mysqli_fetch_assoc($result);
 
-                            $dates_start = explode('-', $row['maxStart']);
+                            $dates_start = explode('-', $row['start_time']);
                             $date_start = $dates_start[2] . '-' . $dates_start[1] . '-' . $dates_start[0];
 
-                            $dates_end = explode('-', $row['maxEnd']);
+                            $dates_end = explode('-', $row['end_time']);
                             $date_end = $dates_end[2] . '-' . $dates_end[1] . '-' . $dates_end[0];
 
                             $time_current = date("Y/m/d");
 
-                            echo    '<div id="date_start">Ngày bắt đầu: ' . $date_start . '</div>
-                                    <div id="date_end">Ngày kết thúc: ' . $date_end . '</div>';
+                            echo    '<div class="col-6">
+                                        <div id="school_year" class="mb-3">Năm học: <b>' . $row['school_year'] . '</b></div>
+                                        <div id="semester">Học kỳ: <b>' . $row['semester'] . '</b></div>
+                                    </div>';
+                            echo    '<div class="col-6">
+                                        <div id="date_start" class="mb-3">Ngày bắt đầu: <b>' . $date_start . '</b></div>
+                                        <div id="date_end">Ngày kết thúc: <b>' . $date_end . '</b></div>
+                                    </div>';
                             // if ($time_current > $date_end && $time_current < $date_start) {
                             //     echo "<script>
                             //     let dis = document.getElementById('register');
@@ -71,7 +81,8 @@ if (!isset($_SESSION)) {
                     <tbody>
                         <?php
                         $username = $_SESSION['loginSuccess'];
-                        $sql = "SELECT * FROM  teacher e  INNER JOIN subject o on e.subject_id = o.subject_id INNER JOIN office a on a.office_id = e.office_id INNER JOIN class c on c.office_id = a.office_id  INNER JOIN student b on c.class_id = b.class_id Where b.std_id = '$username'";
+                        $sql = "SELECT * FROM  teacher e  INNER JOIN subject o on e.subject_id = o.subject_id INNER JOIN office a on a.office_id = e.office_id
+                                INNER JOIN class c on c.office_id = a.office_id  INNER JOIN student b on c.class_id = b.class_id Where b.std_id = '$username'";
                         $result = mysqli_query($con, $sql);
                         $i = 1;
                         if (mysqli_num_rows($result) > 0) {

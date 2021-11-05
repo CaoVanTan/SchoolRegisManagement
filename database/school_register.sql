@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2021 at 06:11 PM
+-- Generation Time: Nov 05, 2021 at 03:57 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -86,7 +86,9 @@ INSERT INTO `curriculum` (`office_id`, `subject_id`, `course_id`, `school_year`,
 (1, 'CSE280', 'K61', 2020, 1),
 (1, 'CSE281', 'K61', 2020, 1),
 (1, 'CSE480', 'K61', 2021, 1),
-(1, 'CSE290', 'K61', 2021, 2);
+(1, 'CSE290', 'K61', 2020, 2),
+(1, 'MATH333', 'K61', 2019, 2),
+(1, 'MATH254', 'K61', 2020, 1);
 
 -- --------------------------------------------------------
 
@@ -105,9 +107,8 @@ CREATE TABLE `list_register` (
 --
 
 INSERT INTO `list_register` (`teacher_id`, `std_id`, `subject_id`) VALUES
-(6, '1951060995', 'CSE485'),
-(5, '1951060995', 'CSE480'),
-(6, '1951060995', 'CSE485');
+(10, '1951060995', 'MATH254'),
+(9, '1951060995', 'CSE290');
 
 -- --------------------------------------------------------
 
@@ -117,7 +118,7 @@ INSERT INTO `list_register` (`teacher_id`, `std_id`, `subject_id`) VALUES
 
 CREATE TABLE `office` (
   `office_id` int(10) UNSIGNED NOT NULL,
-  `office_name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL
+  `office_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -141,16 +142,17 @@ INSERT INTO `office` (`office_id`, `office_name`) VALUES
 CREATE TABLE `regis_period` (
   `id` int(11) NOT NULL,
   `start_time` date NOT NULL,
-  `end_time` date NOT NULL
+  `end_time` date NOT NULL,
+  `semester` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `school_year` year(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `regis_period`
 --
 
-INSERT INTO `regis_period` (`id`, `start_time`, `end_time`) VALUES
-(1, '2021-10-04', '2021-10-06'),
-(2, '2021-11-01', '2021-11-03');
+INSERT INTO `regis_period` (`id`, `start_time`, `end_time`, `semester`, `school_year`) VALUES
+(3, '2021-11-04', '2021-11-07', '1', 2021);
 
 -- --------------------------------------------------------
 
@@ -187,7 +189,7 @@ INSERT INTO `student` (`std_id`, `std_name`, `std_gender`, `std_birthday`, `std_
 
 CREATE TABLE `subject` (
   `subject_id` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `subject_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subject_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `credits` int(10) UNSIGNED NOT NULL,
   `office_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -204,7 +206,8 @@ INSERT INTO `subject` (`subject_id`, `subject_name`, `credits`, `office_id`) VAL
 ('CSE290', 'Tiếng Anh chuyên ngành', 3, 1),
 ('CSE480', 'Phân tích & Thiết kế HTTT', 3, 1),
 ('CSE485', 'Công nghệ Web', 3, 1),
-('MATH254', 'Xác suất thống kê', 3, 1);
+('MATH254', 'Xác suất thống kê', 3, 1),
+('MATH333', 'Đại số tuyến tính', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -214,11 +217,11 @@ INSERT INTO `subject` (`subject_id`, `subject_name`, `credits`, `office_id`) VAL
 
 CREATE TABLE `teacher` (
   `teacher_id` int(10) UNSIGNED NOT NULL,
-  `teacher_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `teacher_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `teacher_gender` tinyint(1) NOT NULL,
   `teacher_birthday` date NOT NULL,
   `teacher_address` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `teacher_phone` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `teacher_phone` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
   `teacher_email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `teacher_pass` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'abc',
   `office_id` int(10) UNSIGNED NOT NULL,
@@ -235,7 +238,8 @@ INSERT INTO `teacher` (`teacher_id`, `teacher_name`, `teacher_gender`, `teacher_
 (7, 'Nguyễn Huy Đức', 1, '1970-06-17', 'Hà Nội', '0156786795', 'ducnh@e.tlu.edu.vn', '$2y$10$tzYeDZIVSUEMmKQxUCeCf.2NH/OvGT3nLdA2VhAe2q2wtKynoyb72', 1, 'CSE281'),
 (8, 'Trần Thị Ngân', 0, '1987-06-18', 'Hà Nội', '0196564245', 'ngantt@e.tlu.edu.vn', '$2y$10$EAduQROoeOzjQ/jFMe1M/eL32/9Z9vXDEpHDFNW3PBuT4Y6Khg7U6', 1, 'CSE280'),
 (9, 'Nguyễn Hằng Phương', 0, '1989-06-12', 'Hà Nội', '0978657448', 'phuongnh@e.tlu.edu.vn', '$2y$10$3UCRpT4/aXV9.Vb9eZLJg.gq.9686OFkZm2.D8FNm.2LI8MP0s3vW', 1, 'CSE290'),
-(10, 'Nguyễn Thị Lý', 0, '1987-08-05', 'Hà Nội', '0934545767', 'lynt@e.tlu.edu.vn', '$2y$10$mJwzWqu.EW89wEcpVe.KIuuow4CkbT4b.9B7VuLHNJNFmLnb8RWwm', 1, 'MATH254');
+(10, 'Nguyễn Thị Lý', 0, '1987-08-05', 'Hà Nội', '0934545767', 'lynt@e.tlu.edu.vn', '$2y$10$mJwzWqu.EW89wEcpVe.KIuuow4CkbT4b.9B7VuLHNJNFmLnb8RWwm', 1, 'MATH254'),
+(11, 'Nguyễn Thị Lý', 0, '1987-08-05', 'Hà Nội', '0934545767', 'lynt@e.tlu.edu.vn', '$2y$10$TLf8XVHkt79/ZHbNH9/pEOXc0iy5DKSx5supIGWYTp/641qC3olb2', 1, 'MATH333');
 
 --
 -- Indexes for dumped tables
@@ -325,13 +329,13 @@ ALTER TABLE `office`
 -- AUTO_INCREMENT for table `regis_period`
 --
 ALTER TABLE `regis_period`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `teacher_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `teacher_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables

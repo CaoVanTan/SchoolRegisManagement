@@ -4,9 +4,11 @@
     if(isset($_POST['btnOpenRegis'])) {
         $startTime = $_POST['startTime'];
         $endTime = $_POST['endTime'];
+        $schoolYear = $_POST['schoolYear'];
+        $semester = $_POST['semester'];
 
-        $sql = "INSERT INTO regis_period(start_time, end_time)
-                VALUES ('$startTime', '$endTime')";
+        $sql = "INSERT INTO regis_period (start_time, end_time, semester, school_year)
+                VALUES ('$startTime', '$endTime', '$semester', '$schoolYear')";
         $result = mysqli_query($con, $sql);
 
         if($result == 1) {
