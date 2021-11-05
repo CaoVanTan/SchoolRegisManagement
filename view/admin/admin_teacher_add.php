@@ -4,7 +4,7 @@
             <div class="form_title mb-3">Thêm Giảng Viên</div>
             <div class="mb-3 col-6">
                 <label for="teacherName" class="form-label">Tên giảng viên:</label>
-                <input type="text" class="form-control" id="teacherName" name="teacherName">
+                <input type="text" required class="form-control" id="teacherName" name="teacherName">
             </div>
             <div class="mb-3 col-6">
                 <label for="teacherGender" class="form-label">Giới tính:</label>
@@ -15,19 +15,19 @@
             </div>
             <div class="mb-3 col-6">
                 <label for="teacherBirthday" class="form-label">Ngày sinh:</label>
-                <input type="date" class="form-control text-uppercase" id="teacherBirthday" name="teacherBirthday">
+                <input type="date" required class="form-control text-uppercase" id="teacherBirthday" name="teacherBirthday">
             </div>
             <div class="mb-3 col-6">
                 <label for="teacherAddress" class="form-label">Địa chỉ:</label>
-                <input type="text" class="form-control" id="teacherAddress" name="teacherAddress">
+                <input type="text" required class="form-control" id="teacherAddress" name="teacherAddress">
             </div>
             <div class="mb-3 col-6">
                 <label for="teacherPhone" class="form-label">Số điện thoại:</label>
-                <input type="text" class="form-control" id="teacherPhone" name="teacherPhone">
+                <input type="text" required class="form-control" id="teacherPhone" name="teacherPhone">
             </div>
             <div class="mb-3 col-6">
                 <label for="teacherEmail" class="form-label">Email:</label>
-                <input type="email" class="form-control" id="teacherEmail" name="teacherEmail">
+                <input type="email" required class="form-control" id="teacherEmail" name="teacherEmail">
             </div>
             <div class="mb-3 col-6">
                 <label for="teacherOffice" class="form-label">Khoa:</label>

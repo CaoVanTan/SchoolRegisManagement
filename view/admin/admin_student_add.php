@@ -4,11 +4,11 @@
             <div class="form_title mb-3">Thêm Sinh Viên</div>
             <div class="mb-3 col-6">
                 <label for="stdID" class="form-label">Mã sinh viên:</label>
-                <input type="text" class="form-control" id="stdID" name="stdID">
+                <input type="text" required class="form-control" id="stdID" name="stdID">
             </div>
             <div class="mb-3 col-6">
                 <label for="stdName" class="form-label">Tên sinh viên:</label>
-                <input type="text" class="form-control" id="stdName" name="stdName">
+                <input type="text" required class="form-control" id="stdName" name="stdName">
             </div>
             <div class="mb-3 col-6">
                 <label for="stdGender" class="form-label">Giới tính:</label>
@@ -19,19 +19,19 @@
             </div>
             <div class="mb-3 col-6">
                 <label for="stdBirthday" class="form-label">Ngày sinh:</label>
-                <input type="date" class="form-control text-uppercase" id="stdBirthday" name="stdBirthday">
+                <input type="date" required class="form-control text-uppercase" id="stdBirthday" name="stdBirthday">
             </div>
             <div class="mb-3 col-6">
                 <label for="stdAddress" class="form-label">Địa chỉ:</label>
-                <input type="text" class="form-control" id="stdAddress" name="stdAddress">
+                <input type="text" required class="form-control" id="stdAddress" name="stdAddress">
             </div>
             <div class="mb-3 col-6">
                 <label for="stdPhone" class="form-label">Số điện thoại:</label>
-                <input type="tel" class="form-control" id="stdPhone" name="stdPhone">
+                <input type="tel" required class="form-control" id="stdPhone" name="stdPhone">
             </div>
             <div class="mb-3 col-6">
                 <label for="stdEmail" class="form-label">Email:</label>
-                <input type="email" class="form-control" id="stdEmail" name="stdEmail">
+                <input type="email" required class="form-control" id="stdEmail" name="stdEmail">
             </div>
             <div class="mb-3 col-6 d-block">
                 <label for="stdClass" class="form-label">Lớp:</label>

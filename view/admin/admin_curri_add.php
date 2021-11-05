@@ -20,11 +20,11 @@
             </div>
             <div class="mb-3 col-6">
                 <label for="schoolYear" class="form-label">Năm học:</label>
-                <input type="number" min="2010" max="2099" step="1" value="2020" class="form-control" id="schoolYear" name="schoolYear">
+                <input type="number" required min="2010" max="2099" step="1" value="2020" class="form-control" id="schoolYear" name="schoolYear">
             </div>
             <div class="mb-3 col-6">
                 <label for="semester" class="form-label">Học kì:</label>
-                <input type="number" min="1" max="2" step="1" value="1" class="form-control" id="semester" name="semester">
+                <input type="number" required min="1" max="2" step="1" value="1" class="form-control" id="semester" name="semester">
             </div>
             <div class="mb-3 col-6">
                 <label for="course_id" class="form-label">Khóa học:</label>
