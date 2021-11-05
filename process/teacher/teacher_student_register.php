@@ -18,7 +18,11 @@
                 $gender='Nữ';
             }
              echo '<td>'.$gender.'</td>';
-             echo '<td>'.$row['std_birthday'].'</td>';
+            $date = explode('-', $row['std_birthday']);
+            $birthday = $date[2] . '-' . $date[1] . '-' . $date[0];
+                                
+            
+             echo '<td>'.$birthday.'</td>';
 
              echo '<td>'.$row['std_email'].'</td>';
 
