@@ -75,7 +75,8 @@ if (!isset($_SESSION)) {
                     <tbody>
                         <?php
                         $username = $_SESSION['loginSuccess'];
-                        $sql = "SELECT * FROM  teacher e  INNER JOIN subject o on e.subject_id = o.subject_id INNER JOIN curriculum a on o.subject_id = a.subject_id ";
+                        $sql = "SELECT * FROM  teacher e , subject o, curriculum a where o.subject_id = e.subject_id && o.subject_id = a.subject_id ";
+                       // $sql = "SELECT * FROM  teacher e  INNER JOIN subject o on e.subject_id = o.subject_id INNER JOIN curriculum a on o.subject_id = a.subject_id ";
                         $result = mysqli_query($con, $sql);
                         $i = 1;
                             while ($row = mysqli_fetch_assoc($result)) {
