@@ -53,8 +53,7 @@ include '../../process/teacher/teacher_information.php';
                             <div class="ms-2 mb-3 row">
                                 <label for="" class="col-sm-2 col-form-label">Ngày sinh: </label>
                                 <div class="col-sm-8">
-                                    <input type="date" value="<?php echo $row['teacher_birthday']
-                                 ?> " class="form-control" name="teacherBirthday">
+                                <input type="date" class="form-control text-uppercase" value="<?php echo $row['teacher_birthday'] ?>" name="teacherBirthday">
                                 </div>
                             </div>
                             <div class="ms-2 mb-3 row">
