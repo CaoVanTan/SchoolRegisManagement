@@ -4,29 +4,29 @@
             <div class="form_title mb-3">Thêm Môn Học</div>
             <div class="mb-3 col-6">
                 <label for="subjectID" class="form-label">Mã môn học:</label>
-                <input type="text" class="form-control" id="subjectID" name="subjectID">
+                <input type="text" required class="form-control" id="subjectID" name="subjectID">
             </div>
             <div class="mb-3 col-6">
                 <label for="subjectName" class="form-label">Môn học:</label>
-                <input type="text" class="form-control" id="subjectName" name="subjectName">
+                <input type="text" required class="form-control" id="subjectName" name="subjectName">
             </div>
             <div class="mb-3 col-6">
                 <label for="subjectCredits" class="form-label">Số tín chỉ:</label>
-                <input type="number" class="form-control" id="subjectCredits" name="subjectCredits">
+                <input type="number" required class="form-control" id="subjectCredits" name="subjectCredits">
             </div>
             <div class="mb-3 col-6">
                 <label for="subjectOffice" class="form-label">Khoa:</label>
                 <select class="form-select" aria-label="Default select example" name="subjectOffice">
-                <?php
+                    <?php
                     $sql = "SELECT * FROM office";
                     $result = mysqli_query($con, $sql);
 
-                    if(mysqli_num_rows($result) > 0) {
-                        while($row = mysqli_fetch_assoc($result)) {
-                            echo '<option value="'.$row['office_id'].'">'.$row['office_name'].'</option>';
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo '<option value="' . $row['office_id'] . '">' . $row['office_name'] . '</option>';
                         }
                     }
-                ?>
+                    ?>
                 </select>
             </div>
 
