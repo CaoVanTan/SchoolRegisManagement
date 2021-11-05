@@ -245,7 +245,7 @@ main {
 }
 
 /* Disable a tag */
-a .disabled {
+.disabled {
     pointer-events: none;
     cursor: default;
 }

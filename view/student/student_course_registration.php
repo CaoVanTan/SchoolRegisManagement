@@ -43,24 +43,18 @@ if (!isset($_SESSION)) {
                                         <div id="school_year" class="mb-3">Năm học: <b>' . $row['school_year'] . '</b></div>
                                         <div id="semester">Học kỳ: <b>' . $row['semester'] . '</b></div>
                                     </div>';
-                            echo    '<div class="col-6">
-                                        <div id="date_start" class="mb-3">Ngày bắt đầu: <b>' . $date_start . '</b></div>
-                                        <div id="date_end">Ngày kết thúc: <b>' . $date_end . '</b></div>
+                            echo    '<div class="d-flex flex-column col-6">
+                                        <div class="align-items-center">
+                                            <span class="me-1">Ngày bắt đầu: </span>
+                                            <input class="date_start mb-3 w-50 border-0 fw-bold" style="background-color: #f3f5f9;" type="text" value="' . $date_start . '">
+                                        </div>
+                                        <div class="align-items-center">
+                                            <span class="">Ngày kết thúc: </span>
+                                            <input class="date_end w-50 border-0 fw-bold" style="background-color: #f3f5f9;" type="text" value="' . $date_end . '">
+                                        </div>
                                     </div>';
-                            // if ($time_current > $date_end && $time_current < $date_start) {
-                            //     echo "<script>
-                            //     let dis = document.getElementById('register');
-
-                            //     if (dis.className === 'register'){
-                            //         dis.className = 'disabled';
-                            //     }
-                            //     </script>";
-                            //     // else {
-                            //     //     dis.className = 'active';
-                            // }
                         }
                         ?>
-
                     </form>
                 </div>
 
@@ -96,8 +90,8 @@ if (!isset($_SESSION)) {
                                 '<td>' . $row['subject_name'] . '</td>',
                                 '<td>' . $row['teacher_name'] . '</td>',
                                 '<td>
-                                    <a id="register" class="ms-3 register" href="../../process/student/student_registration.php?subject_id=' .  $row['subject_id'] . '">
-                                        <i class="fas fa-user-plus"></i>
+                                    <a id="" class="getClass register" href="../../process/student/student_registration.php?subject_id=' .  $row['subject_id'] . '">
+                                        <i class="ms-3 fas fa-user-plus"></i>
                                     </a>
                                 </td>',
                                 '</tr>';
@@ -105,7 +99,6 @@ if (!isset($_SESSION)) {
                             
                         }
                         ?>
-
                     </tbody>
                 </table>
             </div>
