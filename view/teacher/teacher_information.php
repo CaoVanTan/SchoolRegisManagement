@@ -20,14 +20,14 @@ include '../../process/teacher/teacher_information.php';
                     <div class="col-12">
                         
                         <div class="ms-2 mb-3 row">
-                            <label for="staticEmail" class="col-sm-2 col-form-label">Tên giảng viên: </label>
+                            <label for="" class="col-sm-2 col-form-label">Tên giảng viên: </label>
                             <div class="col-sm-8">
                                 <input type="text" readonly value="<?php echo $row['teacher_name'] ?> "
                                     class="form-control" >
                             </div>
                         </div>
                         <div class="ms-2 mb-3 row">
-                            <label for="staticEmail" class="col-sm-2 col-form-label">Giới tính: </label>
+                            <label for="" class="col-sm-2 col-form-label">Giới tính: </label>
                             <div class="col-sm-8">
                                 <input type="text" readonly value="<?php 
                                 $gender;
@@ -41,7 +41,7 @@ include '../../process/teacher/teacher_information.php';
                             </div>
                         </div>
                         <div class="ms-2 mb-3 row">
-                            <label for="staticEmail" class="col-sm-2 col-form-label">Ngày sinh: </label>
+                            <label for="" class="col-sm-2 col-form-label">Ngày sinh: </label>
                             <div class="col-sm-8">
                                 <input type="text" readonly value="<?php 
                                  $date = explode('-', $row['teacher_birthday']);
@@ -52,27 +52,32 @@ include '../../process/teacher/teacher_information.php';
                             </div>
                         </div>
                         <div class="ms-2 mb-3 row">
-                            <label for="staticEmail" class="col-sm-2 col-form-label">Địa chỉ: </label>
+                            <label for="" class="col-sm-2 col-form-label">Địa chỉ: </label>
                             <div class="col-sm-8">
                                 <input type="text" readonly value="<?php echo $row['teacher_address'] ?> "
                                     class="form-control" >
                             </div>
                         </div>
                         <div class="ms-2 mb-3 row">
-                            <label for="staticEmail" class="col-sm-2 col-form-label">Số điện thoại: </label>
+                            <label for="" class="col-sm-2 col-form-label">Số điện thoại: </label>
                             <div class="col-sm-8">
                                 <input type="text" readonly value="<?php echo $row['teacher_phone'] ?> "
                                     class="form-control" >
                             </div>
                         </div>
                         <div class="ms-2 mb-3 row">
-                            <label for="staticEmail" class="col-sm-2 col-form-label">Email: </label>
+                            <label for="" class="col-sm-2 col-form-label">Email: </label>
                             <div class="col-sm-8">
                                 <input type="text" readonly value="<?php echo $row['teacher_email'] ?> "
                                     class="form-control" >
                             </div>
                         </div>
-
+                        <div class="text-end">
+                        <?php
+                        echo '<a href="./teacher_edit_information.php?id='.$row['teacher_id'].'" class="btn btn-secondary"><i class="fas fa-edit"></i>Chỉnh sửa</a>';
+                            
+                        ?>
+                        </div>
 
                     </div>
                 </div>
